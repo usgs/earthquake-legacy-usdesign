@@ -1,0 +1,91 @@
+
+#usgsbanner ul, #usgstitle ul, #sitenav, #navigation, #sitemap, #usgsnav, #footer {
+	display:none !important;
+}
+
+#usgsbanner, #usgsbanner div, #usgstitle, #usgstitle div {
+	background:#fff !important;
+	color:#000 !important;
+	display:block !important;
+	margin:0 !important;
+	padding:0 !important;
+	float:none;
+	width:auto;
+	height:auto;
+}
+
+#usgsbanner img, #usgstitle p, #usgstitle p a, #main, #content {
+	display:block !important;
+	color:#000 !important;
+	background: #fff !important;
+	clear:both !important;
+	margin:0 !important;
+	padding:0 !important;
+	float:none !important;
+}
+
+
+/*
+#usgsbanner {
+  background: #FFF;
+}
+#usgsbanner div {
+  background: #FFF;
+}
+#usgstitle {
+	display:none;
+}
+#utilities {
+	display: none;
+}
+#sitenav {
+	display:none;
+}
+#navigation {
+	width: 0px;
+	display: none;
+}
+.ccsaBox, .footerBar, .footerText img {
+	display:none;
+}
+#nav-top, #crumb, #nav-left, #nav-bottom {
+	display:none;
+}
+#main {
+	float: left;
+	margin-left:25px;
+}
+#content-wrapper, #pTitle {
+	margin:0;
+	padding:0;
+}
+#content {
+	margin:10px 0;
+	padding:0;
+}
+#wrapper {
+	background: #fff;
+	border:0;
+}
+#sitemap {
+	display:none;
+}
+#usgsnav {
+	display:none;
+}
+#footer {
+	display:none;
+}
+
+.homepage #nav-left {
+	display:block;
+	float:none;
+	width:100%;
+}
+.homepage h1, .homepage .quicklinks, .homepage .eqnews h3 {
+	display:none;
+	}
+.homepage h2, .homepage #nav-left h2 {
+	border:0; padding:0;
+	}
+*/

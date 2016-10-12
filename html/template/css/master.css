@@ -1,0 +1,808 @@
+body {
+  margin: 0px;
+  color: #333;
+  font-size: 82%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+:link {
+  color: #00c;
+}
+:link:hover, :visited:hover {
+  color: #c00;
+}
+:link:visited {
+  color: #551A8B;
+}
+
+acronym, abbr {
+  border-bottom: 1px dotted;
+}
+
+hr {
+  display: none;
+}
+#content hr {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, table {
+  margin: 1em 0;
+}
+
+li {
+  margin-left: 2em;
+}
+
+li.column, li.grid, li.container {
+	list-style:none;
+	margin-left:0;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+
+h1 {
+  font-size: 1.85em;
+  margin: .75em 0 .25em 0;
+  line-height: 1;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.25em;
+}
+h5 {
+  font-size: 1.1em;
+}
+h6 {
+  font-size: 1em;
+}
+
+.invisiblelink {
+  display: none;
+}
+
+/* adds exit icon to offsite links */
+
+.offsite:hover:after, a:not([href*=".usgs.gov"]):not([href*="www.doi.gov"])[href^="http"]:hover:after {
+	position: absolute;
+	content: url("/images/small_offsite_arrow.gif");
+	margin-left: 2px;
+}
+
+/* Grid system: columns / left, right, center alignment
+------------------------------------------------------------------------- */
+
+.column {
+	float: left;
+	margin: 0 16px 0 0;
+}
+
+/* Grid container can contain nested columns */
+.grid, .container {
+	margin-right:0;
+}
+
+/* Non-column children also need right margin to align. */
+.grid > *, .container > * {
+	margin-right:16px;
+}
+
+.grid > .grid, .container > .container {
+	margin-right:0;
+}
+
+.one    {width: 64px;}
+.two    {width: 144px;}
+.three  {width: 224px;}
+.four   {width: 304px;}
+.five   {width: 384px;}
+.six    {width: 464px;}
+.seven  {width: 544px;}
+.eight  {width: 624px;}
+.nine   {width: 704px;}
+.ten    {width: 784px;}
+.eleven {width: 864px;}
+.twelve {width: 944px;}
+
+/**
+ * 01/13/10 -- EMM: Added single-selected classes for the container/grid options
+ * to extend the width to the full column width (since margin is removed). The
+ * purpose of this rule is to standardize the way we create column container
+ * classes since the '.this.that' selector is not appropriate per CSS specs.
+ *
+ * To properly create a container/grid object one should now use the class value
+ * of:
+ *
+ * class="column container contains-<width>"
+ *
+ * Where <width> is one of the numeric values (one - twelve) indicating how many
+ * columns this container may contain. It is now deprecated to use the old style
+ * of selected to achieve this result: e.g.
+ *
+ * class="<width> column container" -- deprecated
+ * class="<width> column grid"      -- deprecated
+ *
+ * These selectors remain available for backward compatibility reasons.
+ */
+.grid.one,    .container.one,    .contains-one    {width:80px;}
+.grid.two,    .container.two,    .contains-two    {width:160px;}
+.grid.three,  .container.three,  .contains-three  {width:240px;}
+.grid.four,   .container.four,   .contains-four   {width:320px;}
+.grid.five,   .container.five,   .contains-five   {width:400px;}
+.grid.six,    .container.six,    .contains-six    {width:480px;}
+.grid.seven,  .container.seven,  .contains-seven  {width:560px;}
+.grid.eight,  .container.eight,  .contains-eight  {width:640px;}
+.grid.nine,   .container.nine,   .contains-nine   {width:720px;}
+.grid.ten,    .container.ten,    .contains-ten    {width:800px;}
+.grid.eleven, .container.eleven, .contains-eleven {width:880px;}
+.grid.twelve, .container.twelve, .contains-twelve {width:960px;}
+
+.center, .left, .right,
+.align-center, .align-left, .align-right {
+  display: block;
+}
+.center, .align-center {
+  margin: 0 auto 1em auto;
+}
+.left, .align-left {
+  float: left;
+}
+.right, .align-right {
+  float: right;
+}
+
+.align-right, img.right {
+	margin: 4px 16px 1em 16px;
+}
+
+.column .align-right {
+  margin-right: 0;
+}
+
+.align-left, img.left {
+	margin: 4px 16px 1em 0;
+}
+
+.align-center, .align-left, .align-right {
+  margin-top: .75em;
+}
+.align-center p, .align-left p, .align-right p {
+  margin-top: .4em;
+}
+
+@media print { .noprint, .noprint * {display:none !important;} }
+@media screen { .noscreen, .noscreen * {display:none !important;} }
+
+
+/* Header section
+------------------------------------------------------------------------- */
+
+#usgsbanner {
+  background: #000;
+}
+#usgsbanner div {
+  background: #000 url(/template/images/header.png) 179px 0px no-repeat;
+  margin: 0 auto;
+  width: 960px;
+  padding-left: 16px;
+  height: 72px;
+}
+#usgsbanner img {
+  margin-left:-3px;
+/*  margin: 8px 0 0 2px; */
+  display:block;
+  float:left;
+}
+#usgsbanner ul {
+  float: right;
+  width: 160px;
+  list-style: none;
+  padding-top: 5px;
+  margin:0;
+}
+#usgsbanner ul li {
+	margin:0;
+}
+#usgsbanner ul a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+#usgsbanner ul a:hover {
+  text-decoration: underline;
+}
+
+#usgstitle {
+  background: #58789d url(/template/images/bg_usgstitle.gif) repeat-x 0 0;
+  border-top: 1px solid #fff;
+  font-size: 14px;
+  color: #fff;
+}
+#usgstitle div {
+  background: #58789d url(/template/images/bg_usgstitle.gif) repeat-x 0 0;
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-left: 16px;
+}
+#usgstitle p {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: normal;
+  padding: 5px 0;
+  margin:0;
+  float: left;
+}
+
+#usgstitle p a {
+  color:#fff;
+  text-decoration:none;
+}
+
+#usgstitle p a:hover {
+	text-decoration:underline;
+}
+
+/* Nav: EHP links, search
+------------------------------------------------------------------------- */
+
+#utilities {
+  padding: 2px 0;
+  float: right;
+  font-size: .85em;
+  line-height: 1.5em;
+  color: #fff;
+  margin:0;
+  width:auto;
+}
+#utilities li {
+  float: left;
+  list-style-type: none;
+  margin: 0 30px 0 0;
+}
+#utilities li a, #utilities li a:visited {
+  margin-top: 5px;
+  display: block;
+  color: #e9f2f5;
+  text-decoration: none;
+}
+#utilities li strong a, #utilities li strong a:visited {
+  color: #fff;
+}
+#utilities li a:hover {
+  text-decoration: underline;
+}
+
+#search {
+  position: relative;
+  top: 5px;
+  right: -14px;
+}
+#search form .search-wrap {
+  display: block;
+  width: 224px;
+  height: 18px;
+  background: url(/template/images/sbox_left-trans.gif) no-repeat scroll left top;
+}
+#search form .search-wrap .search-text {
+  position: absolute;
+  top: 0px;
+  left: 22px;
+  margin: 0;
+  padding: 3px 2px 0 2px;
+  width: 150px;
+  height: 18px;
+  background: url(/template/images/sbox_interior.gif) repeat-x scroll center top;
+  border: 0;
+  font-size: 11px;
+  font-size-adjust: none;
+  line-height: 18px;
+}
+#search form .search-wrap .search-button {
+  position: relative;
+  left: 176px;
+}
+
+
+/* Nav: main sections (top)
+------------------------------------------------------------------------- */
+
+#sitenav {
+  clear: both;
+  text-transform: uppercase;
+  background: #C9D8E9 url(/template/images/bg-sitenav2.gif) repeat-x left -6px;
+  border-top: 1px solid #fff;
+  /*text-shadow : 2px 2px 2px #E1EAF2; **Causes scrollbars in FF 3.5?? */
+}
+#sitenav ul {
+  background: #C9D8E9 url(/template/images/bg-sitenav2.gif) repeat-x left -6px;
+  width: 960px;
+  margin: 0 auto;
+  padding-left: 16px;
+  overflow: hidden;
+  list-style: none;
+}
+
+#sitenav li {
+	margin: 0;
+	float: left;
+}
+
+#sitenav a {
+  padding: 5px 0 3px 0px;
+  margin-right: 16px;
+  display: block;
+  font-weight: bold;
+  color: #132840;
+  width: 144px;
+  text-decoration: none;
+  border-bottom: 3px solid #C9D8E9;
+}
+#sitenav strong a {
+  color: #333;
+  border-bottom: 3px solid #333;
+}
+#sitenav a:hover, #sitenav a.hover {
+  color: #000;
+  border-bottom: 3px solid #000;
+}
+
+
+/* Nav: main sections / sub-sections (bottom)
+------------------------------------------------------------------------- */
+
+#sitemap {
+  clear: both;
+  margin: 1.8em 0 0;
+  background: #EFF5FB;
+  border-top: 1px dotted #DDDDDD;
+}
+#sitemap ul {
+  background: #EFF5FB;
+  width: 960px;
+  margin: 0 auto;
+  padding: 1.5em 0 1.5em 16px;
+  overflow: hidden;
+}
+#sitemap ul li {
+  width: 144px;
+  float: left;
+  margin:0 16px 0 0;
+  list-style: none;
+}
+#sitemap ul ul {
+  float: left;
+  padding: 0;
+  width: 144px;
+  margin-top: 1px;
+}
+#sitemap ul a {
+  display: block;
+  text-transform: uppercase;
+  font-size: .9em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2A4B71;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1px;
+  line-height: 1.4;
+}
+#sitemap ul a:hover {
+  color: #000;
+  border-bottom-color: #666
+}
+#sitemap ul ul a {
+  color: #2A4B71;
+  text-transform: none;
+  font-weight: normal;
+  border-bottom: 1px dotted #ddd;
+  padding: 3px 0;
+  font-size: .85em;
+}
+#sitemap ul ul a:hover {
+  background: #E4EDF8;
+  border-color: #ddd;
+  color: #000;
+}
+
+
+/* Content area
+------------------------------------------------------------------------- */
+
+#content {
+  clear: both;
+  width: 960px;
+  margin: .7em auto 1.8em;
+  padding-left: 16px;
+  overflow: visible;
+  font-family: Helvetica;
+}
+
+#content > p, #main > p {
+	margin-right:16px;
+}
+
+#content > .grid, #main > .grid, #content > .container, #main > .container {
+	margin-right:0;
+}
+
+#main {
+  float: right;
+  width: 800px;
+  margin-right:0;
+  margin-bottom:1.8em;
+}
+
+
+/* Nav: sub-sections (sidebar)
+------------------------------------------------------------------------- */
+
+#navigation {
+  font-family: Verdana;
+  width: 144px;
+  float: left;
+  margin-top: 0em;
+  margin-bottom:1.8em;
+}
+#navigation hr {
+  display: none;
+}
+
+#navigation ul {
+	width:auto;
+}
+#navigation ul li {
+  width: 144px;
+  list-style: none;
+  margin: 0;
+}
+#navigation ul ul {
+  margin: 0;
+  border-top: 1px solid #999;
+  overflow: hidden;
+}
+#navigation ul a {
+  display: block;
+  font-size: .9em;
+  text-decoration: none;
+  color: #111;
+  border-bottom: 1px solid #eaeaea;
+  padding: .3em 0 1px 0;
+  line-height: 1.4;
+}
+#navigation ul a:hover, #navigation ul strong a.group:hover {
+  color: #000;
+  background: #e9f1e7;
+}
+#navigation ul ul a {
+  color: #555;
+  margin: 0;
+  padding: 3px 0 3px 4px;
+  font-size: .82em;
+  border-bottom-color: #efefef;
+}
+#navigation ul strong a, #navigation ul strong span {
+  color: #000;
+  background: #d5eacf;
+  font-weight: normal;
+  display:block;
+}
+#navigation ul strong span {
+  font-size: .9em;
+  padding: 2px 0;
+}
+#navigation ul strong a.group.childselected, #navigation ul strong span/*.group.childselected*/ {
+  background: none;
+}
+
+
+/* Content footer section
+------------------------------------------------------------------------- */
+
+/* Content footer is between content and sitemap. */
+#content_footer {
+  clear: both;
+}
+
+#content_footer > * {
+	width: 960px;
+	margin: 0 auto -.3em;
+	padding: 1.8em 0 16px 16px;
+	overflow: visible;
+	font-family: Helvetica;
+}
+
+#share {
+  overflow: hidden;
+}
+#share p, #share a {
+  line-height: 1.3em;
+}
+#share p {
+  float: left;
+  margin: 0 8px 0 0;
+}
+#share ul {
+  float: left;
+  list-style: none;
+  margin: 0;
+}
+#share li {
+  float: left;
+  margin: 0 16px 0 0;
+}
+#share a {
+  background: url('/template/images/icons-sprite.png') no-repeat;
+  display: block;
+  height: 16px;
+  padding-left: 20px;
+  outline: 0;
+}
+#share .facebook a {
+  background-position: 0 -32px;
+}
+#share .twitter a {
+  background-position: 0 -80px;
+}
+#share .googlemarks a {
+  background-position: 0 -128px;
+}
+#share .stumbleupon a {
+  background-position: 0 -224px;
+}
+#share .delicious a {
+  background-position: 0 -176px;
+}
+#share .digg a {
+  background-position: 0 -320px;
+}
+#share .email a {
+  background-position: 0 -368px;
+}
+#share .googlereader a {
+  background-position: 0 -656px;
+}
+#share .yahoobuzz a {
+  background-position: 0 -752px;
+}
+#share .messenger a {
+  background-position: 0 -272px;
+}
+
+/* Footer section
+------------------------------------------------------------------------- */
+
+#usgsnav {
+  background: #999;
+  clear: both;
+  border-top:1px solid #ffffff;
+}
+#usgsnav ul {
+  background: #999;
+  width: 960px;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 16px;
+  position: relative;
+}
+#usgsnav ul:after { /* clear float */
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#usgsnav li {
+  float: left;
+  margin:0;
+}
+#usgsnav li a {
+  width: 144px;
+  margin-right: 16px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 0;
+}
+#usgsnav li a:hover {
+  text-decoration: underline;
+}
+#usgsnav li a.nehrp {
+  margin-left: 160px;
+  padding-top: 5px;
+  font-size: .75em;
+}
+#usgsnav li a.nehrp .e {
+  color: #900;
+}
+
+.usagov, .takepride {
+  position: absolute;
+  top: 2.5em;
+  float: none;
+}
+#usgsnav li a.usagov {
+  right: 55px;
+  width: 90px;
+}
+#usgsnav li a.takepride {
+  right: -8px;
+  width: 60px;
+}
+#footer {
+  clear: both;
+  background: #fff url(/template/images/bg-footer.jpg) repeat-x 0 -40px;
+}
+#footer p {
+  width: 960px;
+  margin: 0 auto;
+  padding: 6px 0 6px 16px;
+}
+#usgsnav a:hover:after {
+	content: none;
+}
+
+/* Tabbed sections
+------------------------------------------------------------------------- */
+
+#sections {
+  font: 1em "Lucida Grande", Verdana, sans-serif;
+  line-height: normal;
+  position: relative;
+  height: 30px;
+  border-bottom: 1px solid #999;
+  margin-bottom: 15px;
+}
+#sections ul {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  margin-bottom: -1px;
+}
+#sections ul li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+#sections ul li#back {
+  margin-left: 2em;
+}
+#sections li#back a {
+  background: none;
+  padding: 0;
+  float: none;
+}
+#sections a {
+  float: left;
+  margin: 0;
+  padding: 0 0 0 10px;
+  text-decoration: none;
+  background: url(/images/tabs/tabs-left.gif) no-repeat left top;
+  color: #444;
+}
+#sections a span {
+  float: left;
+  display: block;
+  padding: 4px 10px 3px 0;
+  margin: 0;
+  background: url(/images/tabs/tabs-right.gif) no-repeat right top;
+  cursor: pointer; /* for IE */
+}
+#sections li.selected a {
+  background-position: 0 -150px;
+  border-width: 0;
+  color: #222;
+  font-weight: bold;
+}
+#sections li.selected a span {
+  background-position: 100% -150px;
+}
+#sections a:hover, #sections li.selected  a:hover {
+  color: #000;
+}
+
+/* Other stuff
+------------------------------------------------------------------------- */
+
+/* Tabular data tables */
+
+table.tabular {
+  margin: 0 0 1em 0;
+}
+table.tabular th, table.tabular td {
+  padding: 3px 10px;
+  border: 1px solid #fff;
+}
+table.tabular th {
+  text-align: left;
+  background-color: #ccc;
+  font-weight: bold;
+}
+table.tabular td {
+  background-color: #eee;
+}
+
+/* bibliography-style indents */
+
+ul.referencelist li {
+  padding: 0 0 0 3em;
+  margin: 1.25em 0;
+  text-indent: -3em;
+  list-style: none;
+  line-height: 1.4em;
+}
+
+ul.referencelist li p.note {
+  margin: 1em 1.5em 0 0;
+	border: 1px solid #fff;
+	padding: 0;
+	text-indent: 0;
+	color: #555;
+	font-size: .85em;
+}
+
+/* "jumplist" navigation links */
+
+#nav-alpha, .jumplist {
+  background: #eee;
+  padding: .6em 10px;
+  margin: 1.5em 16px 1.5em 0;
+  border: 1px solid #ccc;
+  font-size: 1.2em;
+}
+
+/* Disclaimer text */
+
+#footer .disclaimer {
+	display:block;
+	width: 960px;
+	margin: 0 auto;
+	padding: 6px 0 6px 16px;
+	color:#000;
+}
+
+.disclaimer {
+  font-size: .85em;
+  color: #999;
+}
+
+.date {
+	font-size:.9em;
+	color: #777;
+	font-family: Georgia, Times, serif;
+	font-style: normal;
+}
+
+.column h2, h2.section, h3.section {
+  clear: both;
+  padding: 3px 6px 2px;
+  font-size: 15px;
+  font-weight: bold;
+  background: #EBEAE3 url(/template/images/bg-headers3.gif) repeat-x left -5px;
+  color: #3A2F20;
+}
+
+.column h2 a, h2.section a, h3.section a,
+.column h2 a:hover, h2.section a:hover, h3.section a:hover {
+	display:block;
+	color:#3A2F20;
+	text-decoration:none;
+}
+
+.clear {
+  clear: both;
+}
+
+.addthis_button img {
+  margin-top: 1em;
+}
