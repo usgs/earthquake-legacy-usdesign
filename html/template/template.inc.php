@@ -11,7 +11,7 @@ if (!defined("DOCUMENT_ROOT")) {
 	if (isset($_SERVER['DOCUMENT_ROOT'])) {
 		define("DOCUMENT_ROOT", $_SERVER['DOCUMENT_ROOT']);
 	} else {
-		define("DOCUMENT_ROOT", "/home/www/vhosts/earthquake/htdocs");
+		define("DOCUMENT_ROOT", "/var/www/html");
 	}
 }
 

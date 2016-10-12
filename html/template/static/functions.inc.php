@@ -23,48 +23,48 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 
 
 	/**
-	 * Create the url string necessary to call the pack.ajax.php page with the 
+	 * Create the url string necessary to call the pack.ajax.php page with the
 	 * files specified in $script
 	 * @param $script Comma separated list of Javascript packages to include OR
 	 *	  $script can be a PHP array of the packages to include
 	 */
 	function fetchScripts($script) {
 		$scripts = array();
-	
+
 		if( is_array( $script ) ) {
 			$files = $script;
 		} else {
 			$files = explode( ',', $script );
 		}
-	
+
 		$time = 0;
-	
+
 		for($x=0; $x<count($files); $x++) {
 			$script = $files[$x];
-	
+
 			$rootdir = '/var/www/html';
 			if (isset($_SERVER['DOCUMENT_ROOT']) && $_SERVER['DOCUMENT_ROOT'] != '') {
 				$rootdir = $_SERVER['DOCUMENT_ROOT'];
 			}
-	
+
 			$classdir = '/template/js/classes';
 			$script_fs = packageToUrl($script, $rootdir);
-	
+
 			// We have to treat wildcards special
 			if( substr($script_fs, -1) == '*' ) {
 				fetch_dir( $script, $files );
 			} else {
 				$file = $rootdir . $script_fs;
-	
+
 				if (file_exists($file) && is_file($file)) {
 					$timestamp = filemtime($file);
 					if( $timestamp > $time ) { $time = $timestamp; }
 					array_push($scripts, str_replace($rootdir, '', $file));
 				}
 			}
-	
+
 		}
-	
+
 		$scripts = array_unique($scripts);
 		$imploded = implode('&amp;files[]=', $scripts);
 		if($imploded != '') {
@@ -75,26 +75,26 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 			return '';
 		}
 	}
-	
-	
+
+
 	function packageToUrl($package, $root) {
-	
+
 		$package = str_replace('//', '/', $package);
 		$package = str_replace('/./', '/', $package);
-	
+
 		// Don't parse URLs
 		if (substr($package, 0, 4) == 'http') { return $package; }
 		// Don't parse file system paths
 		if (strpos($package, '/') !== false) { return $package; }
-	
+
 		$url = '/template/js/classes/';
 		$path = str_replace(".", "/", $package);
-	
+
 		while (strpos($path, '/') !== false &&
 				! file_exists(dirname($root . $url . $path))) {
 			$path = dirname($path) . '.' . basename($path);
 		}
-	
+
 		return $url . $path . '.js';
 	}
 
@@ -102,19 +102,19 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		$script_fs = str_replace('.', '/', $script);
 		$dir_name = dirname($script_fs);
 		if( $dir = opendir($dir_name) ) {
-			$package_name = substr($script, 0, -1); 
+			$package_name = substr($script, 0, -1);
 			while( false !== ($file = readdir($dir))) {
 				$file = trim($file);
-		
+
 				if(is_file( $dir_name . '/' .$file ) &&  substr( $file, -3 ) == '.js' ) {
-					
+
 					//$package_dir = $rootdir . $classdir . '/' . $file . '.js';
 					$class_name = substr( $package_name . $file, 0, -3 );
-					$class_name = str_replace('/', '.', $class_name);	
+					$class_name = str_replace('/', '.', $class_name);
 			//		print "pushing" . $class_name . '<br />';
 					//print "fetching pushing script " . $class_name . '<br />';
 					array_push($files, $class_name);
-				}	
+				}
 				else if( is_dir( $dir_name . '/' . $file) && $file != '.' && $file != '..' && $file != '' && substr($file, 0, 1) != '.' ) {
 					$class_name = $dir_name . '.' . $file .'.*';
 					fetch_dir(  $class_name, $files);
@@ -138,7 +138,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	* Developers need not use the "GOOGLE_MAPS" keyword nor even call this
 	* method any longer to safely include google maps. Rather they can simply
 	* add the "/template/js/gmaps.min.js" to their $SCRIPTS variable.
-	* 
+	*
     */
 
 	function getGoogleKey() {
@@ -169,22 +169,9 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		$server = `hostname`;
 		$r = "http://earthquake.usgs.gov";
 
-		if (strpos($server, 'ehpdv') !== false) {
-			$r = "http://ehpd-earthquake.cr.usgs.gov";
-		} else if (strpos($server, 'ehpst') !== false) {
-			$r = 'http://ehps-earthquake.cr.usgs.gov';
-		} else if (strpos($server, 'master') !== false) {
-			$r = "http://ehpm-earthquake.wr.usgs.gov";
-		} else if (strpos($server, 'backup') !== false) {
-			$r = "http://ehpb-earthquake.cr.usgs.gov";
-		} else if (strpos($server, 'ehp1') !== false) {
-			$r = "http://ehp1-earthquake.cr.usgs.gov";
-		} else if (strpos($server, 'ehp2') !== false) {
-			$r = "http://ehp2-earthquake.wr.usgs.gov";
-		} else if (strpos($server, 'ehp3') !== false) {
-			$r = "http://ehp3-earthquake.wr.usgs.gov";
-		} else if (strpos($server, 'ehp4') !== false) {
-			$r = "http://ehp4-earthquake.cr.usgs.gov";
+		// Use specific overrides here ...
+		if (strpos($server, 'token') !== false) {
+			$r = "http://earthquake.usgs.gov";
 		}
 
 		return($r);
@@ -202,7 +189,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 
 	function safe_param($name, $allowed = "/.*/", $default = "") {
 		$value = param($name);
-    if ($value != '' && preg_match($allowed, $value)) { // test for empty string for $value so that '0' will pass thru 
+    if ($value != '' && preg_match($allowed, $value)) { // test for empty string for $value so that '0' will pass thru
 			return $value;
 		} else {
 			return $default;
@@ -236,7 +223,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		}
 
 		return ($r);
-	}	
+	}
 
 	function sqlString ($value, $type = "text", $definedValue = "", $notDefinedValue = "") {
 		if (get_magic_quotes_gpc()) stripslashes($value);
@@ -269,7 +256,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 			case "html":
 				//1. strip disallowed HTML tags
 				$value = ($value != "") ? "'" . strip_tags($value, "<a><strong><em><ul><ol><li>") . "'" : "NULL";
-	
+
 				//2. remove all attributes except href
 				$value = eregi_replace ("<a[^>]+href *= *([^ ]+)[^>]*>", "<a href=\\1>", $value);
 				$value = eregi_replace ("<(strong|em|ul|ol|li)[^>]*>", "<\\1>", $value);
@@ -281,41 +268,41 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	function fileUpdateTime($file) {
 		$mod_time = filemtime($file);
 		$mod_str = "";
-	
+
 		if($mod_time) {
 			$mod_str = gmdate("D M d H:i:s \U\T\C", $mod_time);
 		}
-	
+
 		return($mod_str);
 	}
-	
+
 	function simpleFileSize($file) {
 		$size_types = array(
 			"B", "kB", "Mb", "Gb"
 		);
-	
+
 		$size_index = 0;
-	
+
 		$file_size = filesize($file);
-		
+
 		while($file_size > 1024) {
 			$file_size = (int) ($file_size / 1024);
 			$size_index++;
 		}
-		
+
 		return($file_size . ' ' . $size_types[$size_index]);
 	}
 
 /*** SIDE NAV WRAPPER FUNCTIONS ***/
 	function side_nav_header() {
 		$r = "<ul>";
-			
+
 		return($r);
 	}
-	
+
 	function side_nav_footer() {
 		$r = "</ul>\n";
-			
+
 		return($r);
 	}
 
@@ -329,24 +316,24 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 
 	function navItem($href, $text) {
 		return side_nav_item($href, $text);
-	}	
-	
+	}
+
 	function side_nav_item_list($href, $text, $array_highlights) {
 		$highlight = false;
-	
+
 		//highlight if at or beneath link
 		array_push($array_highlights, $href);
 		$highlight = _side_nav_highlight($array_highlights);
-		
+
 		return(side_nav_item_bool($href, $text, $highlight));
 	}
-	
+
 	function side_nav_item_bool($href, $text, $highlight) {
 		return(
 			_side_nav_item(
-				$href, 
-				$text, 
-				"", 
+				$href,
+				$text,
+				"",
 				$highlight
 			)
 		);
@@ -359,7 +346,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	function side_nav_toggle_group($href, $text, $children) {
 		return(side_nav_toggle_group_list($href, $text, $children, array()));
 	}
-	
+
 	function side_nav_toggle_group_list($href, $text, $children, $array_highlights) {
 		$extra_classes = '';
 		if(strlen($children) > 0 && strstr($children, "<strong>")) {
@@ -371,7 +358,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		}
 		return(side_nav_toggle_group_bool($href, $text, $children, $highlight, $extra_classes));
 	}
-	
+
 	function side_nav_toggle_group_bool($href, $text, $children, $highlight, $extra_classes='') {
 		$r = "";
 
@@ -385,15 +372,15 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		} else {
 			$r = side_nav_item_bool($href, $text, false);
 		}
-		
+
 		return($r);
 	}
-	
-	
+
+
 	function side_nav_easytoggle_group($href, $text, $children, $togglegroup) {
 		return(side_nav_easytoggle_group_list($href, $text, $children, array(), $togglegroup));
 	}
-	
+
 	function side_nav_easytoggle_group_list($href, $text, $children, $array_highlights, $togglegroup) {
 		//check children for highlights first
 		if(strlen($children) > 0 && strstr($children, "<strong>")) {
@@ -403,15 +390,15 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 			array_push($array_highlights, $href);
 			$highlight = _side_nav_highlight($array_highlights);
 		}
-		
+
 		return(side_nav_easytoggle_group_bool($href, $text, $children, $highlight, $togglegroup));
 	}
-	
+
 	function side_nav_easytoggle_group_bool($href, $text, $children, $highlight, $togglegroup) {
 		$r = "";
-		
+
 		$hrefid = str_replace("#", "", $href);
-		
+
 		$r = _side_nav_item(
 			$href,
 			$text,
@@ -419,12 +406,12 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 			$highlight,
 						$togglegroup
 		);
-		
+
 		return($r);
 	}
-	
-	
-	
+
+
+
 	function side_nav_group($href, $text, $children) {
 		return(side_nav_group_list($href, $text, $children, array()));
 	}
@@ -432,7 +419,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	function navGroup($text, $children) {
 		return side_nav_group('', $text, $children);
 	}
-	
+
 	function side_nav_group_list($href, $text, $children, $array_highlights) {
 		$highlight = false;
 
@@ -446,10 +433,10 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 			array_push($array_highlights, $href);
 			$highlight = _side_nav_highlight($array_highlights);
 		}
-		
+
 		return(side_nav_group_bool($href, $text, $children, $highlight, $extra_classes));
 	}
-	
+
 	function side_nav_group_bool($href, $text, $children, $highlight, $extra_classes='') {
 		$classes = $extra_classes;
 		if ($classes != '') {
@@ -458,9 +445,9 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		$classes .= 'group';
 		return(
 			_side_nav_item(
-				$href, 
-				$text, 
-				"<ul>" . $children . "</ul>", 
+				$href,
+				$text,
+				"<ul>" . $children . "</ul>",
 				$highlight,
 				$classes
 			)
@@ -473,12 +460,12 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 /*** SIDE NAV BASE FUNCTIONS ***/
 	function _side_nav_highlight($array_highlights) {
 		$highlight = false;
-		
+
 		foreach($array_highlights as $test) {
 			$test = str_replace("/", "\/", $test);
 			$test = str_replace(".", "\.", $test);
 			$test = str_replace("?", "\?", $test);
-			
+
 			if(preg_match("/^" . $test . "/", $_SERVER['PHP_SELF'], $matches)
 				|| preg_match("/^" . $test . "/", $_SERVER['REQUEST_URI'], $matches)
 			) {
@@ -486,17 +473,17 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 				break;
 			}
 		}
-		
+
 		return($highlight);
 	}
-	
+
 	function _side_nav_item($href, $text, $other_text, $highlight, $item_class='') {
 		$r = "";
 		$prefix = "";
 		$suffix = "";
 		$target = "";
 		$class = "";
-		
+
 		if($item_class != "") {
 			$class=" class=\"$item_class\"";
 		}
@@ -505,7 +492,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 			$prefix = "<strong>";
 			$suffix = "</strong>";
 		}
-		
+
 		//open offsite links in new window
 		if(strstr($href, "http://")) {
 			$target = " target=\"_blank\"";
@@ -523,9 +510,9 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		} else {
 			$r .= "<span${class}>";
 		}
-		
+
 		$r .= $text;
-		
+
 		if ($href != "") {
 			$r .= "</a>";
 		} else {
@@ -534,7 +521,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 
 		$r .= "${suffix}${other_text}</li>";
 		//$r = "<li>${prefix}<a href=\"${href}\"${target}${class}>${text}</a>${suffix}$other_text</li>";
-	
+
 		return($r);
 	}
 
@@ -549,8 +536,8 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	}
 
 
-	
-	
+
+
 	/**
 	 * Calls findFileInPaths using getRequestPaths() for the $paths parameter.
 	 * The result of getRequestPaths is cached to make this more efficient.
@@ -558,27 +545,27 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	 */
 	function findNearestFile($file) {
 		$paths = getRequestPaths();
-	
+
 		/**
 		//old path building routine, replaced by getRequestPaths().
 		// this contains a "bug", note the double dirname calls...
 		$paths = array();
 		$path = realpath($_SERVER['SCRIPT_FILENAME']);
-		
+
 		while ($path != '' && $path != '/' && $path != '.') {
 			$path = dirname($path);
 			array_push($paths, dirname($path));
 		}
 		**/
-		
+
 		return findFileInPaths($file, $paths, true);
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Builds a list of directories in the web space that contain the requested file.
-	 * 
+	 *
 	 * This method memoizes its results, so only the first call is expensive.
 	 *
 	 * Crawls up SCRIPT_FILENAME until a directory named 'htdocs' is found.
@@ -588,15 +575,15 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	 */
 	function getRequestPaths() {
 		static $paths = null;
-		
+
 		if ($paths == null) {
 			$paths = array();
 			$path = realpath($_SERVER['SCRIPT_FILENAME']);
-		
+
 			while ($path != '' && $path != '/' && $path != '.') {
 				$path = dirname($path);
 				array_push($paths, $path);
-				
+
 				if (basename($path) == 'htdocs' || $path == '/var/www/data') {
 					//stop looking, unless this was an aliased htdocs
 					if (realpath($path) == realpath($_SERVER['DOCUMENT_ROOT'])) {
@@ -612,30 +599,30 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 				}
 			}
 		}
-	
+
 		return $paths;
 	}
-	
-	
+
+
 	/**
 	 * Scans the list of paths for a file named file.
 	 * @param $file name of file to find.
 	 * @param $paths array of directories to search.
-	 * @param $first whether to 
+	 * @param $first whether to
 	 *		 true - return first matching file
 	 *		 false - return all matching files
 	 */
 	function findFileInPaths($file, $paths, $first=true) {
 		$files = array();
-		
-		if (file_exists($file)) { 
+
+		if (file_exists($file)) {
 			$filepath = realpath($file);
-			array_push($files, $filepath); 
-			if ($first) { 
-				return $filepath; 
+			array_push($files, $filepath);
+			if ($first) {
+				return $filepath;
 			}
 		}
-		
+
 		if (!is_array($paths)) { $paths = array(); }
 		foreach ($paths as $path) {
 			$filepath = realpath($path . '/' . $file);
@@ -646,18 +633,18 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 				}
 			}
 		}
-	
+
 		if ($first) {
 			return '';
-		}	
+		}
 		return $files;
 	}
-	
+
 	/**
 	 * Similar to findFileInPaths($file, $paths, true), but if
 	 * $after is provided, the path after $after is returned.
 	 *
-	 * For most uses, it is probably easier to iterate over the array 
+	 * For most uses, it is probably easier to iterate over the array
 	 * returned by findFileInPaths($file, $paths, false).
 	 */
 	function findFirstFileInPaths($file, $paths, $after=null) {
@@ -673,7 +660,7 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 					break;
 				}
 			}
-			
+
 			if (sizeof($files) > 0) {
 				$file = $files[0];
 			} else {
@@ -682,9 +669,9 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		}
 		return $file;
 	}
-	
-	
-	
+
+
+
 
 
 
@@ -694,55 +681,55 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	function getStrsBetween($s,$s1,$s2=false,$offset=0) {
 		/*====================================================================
 		Function to scan a string for items encapsulated within a pair of tags
-	
+
 		getStrsBetween(string, tag1, <tag2>, <offset>
-	
+
 		If no second tag is specified, then match between identical tags
-	
+
 		Returns an array indexed with the encapsulated text, which is in turn
 		a sub-array, containing the position of each item.
-	
+
 		Notes:
 		strpos($needle,$haystack,$offset)
 		substr($string,$start,$length)
-	
+
 		====================================================================*/
-	
+
 		if( $s2 === false ) { $s2 = $s1; }
 		$result = array();
 		$L1 = strlen($s1);
 		$L2 = strlen($s2);
-	
+
 		if( $L1==0 || $L2==0 ) {
 			return false;
 		}
-	
+
 		do {
 			$pos1 = strpos($s,$s1,$offset);
-	
+
 			if( $pos1 !== false ) {
 				$pos1 += $L1;
-	
+
 				$pos2 = strpos($s,$s2,$pos1);
-	
+
 				if( $pos2 !== false ) {
 					$key_len = $pos2 - $pos1;
-	
+
 					$this_key = substr($s,$pos1,$key_len);
-	
+
 					if( !array_key_exists($this_key,$result) ) {
 						$result[$this_key] = array();
 					}
-	
+
 					$result[$this_key][] = $pos1;
-	
+
 					$offset = $pos2 + $L2;
 				} else {
 					$pos1 = false;
 				}
 			}
 		} while($pos1 !== false );
-	
+
 		return $result;
 	}
 }

@@ -1,0 +1,34 @@
+{% extends "base/summary.html" %}
+
+{% block output %}
+<table cellpadding="0" cellspacing="0" border="0" id="summary">
+	<tbody>
+		{% autoescape false %}
+		<tr>
+			{% if GLOBALS._EDITION_VARIANT != 'BSE-1N' %}
+			<th>{{ LABELS.ss_raw }}</th>
+			<td>{{ data.ss|numfmt }} g</td>
+			{% endif %}
+			<th>{{ LABELS.ss_mod }}</th>
+			<td>{{ data.srs|numfmt }} g</td>
+		</tr>
+		<tr>
+			{% if GLOBALS._EDITION_VARIANT != 'BSE-1N' %}
+			<th>{{ LABELS.s1_raw }}</th>
+			<td>{{ data.s1|numfmt }} g</td>
+			{% endif %}
+			<th>{{ LABELS.s1_mod }}</th>
+			<td>{{ data.sr1|numfmt }} g</td>
+		</tr>
+		{% endautoescape %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block spectra %}
+{{ usd_spectrum(spectra['horizontal'], '310x240', {chtt: 'Horizontal Spectrum'}) }}
+{{ usd_spectrum(spectra['vertical'], '310x240', {chtt: 'Vertical Spectrum'}) }}
+{% endblock %}
+
+{% block nehrp_ref_note %}
+{% endblock %}

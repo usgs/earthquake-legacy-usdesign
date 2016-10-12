@@ -73,7 +73,7 @@ h6 {
 
 .offsite:hover:after, a:not([href*=".usgs.gov"]):not([href*="www.doi.gov"])[href^="http"]:hover:after {
 	position: absolute;
-	content: url("/images/small_offsite_arrow.gif");
+	content: url("/template/images/small_offsite_arrow.gif");
 	margin-left: 2px;
 }
 

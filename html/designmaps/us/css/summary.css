@@ -1,0 +1,91 @@
+body { margin:0 5px 5px; font-size:9pt;}
+/* USGS Logo */
+body > a:first-child { float:left; }
+h1 { margin:0 0 0 16px; padding:0; float:left; font-size:1.5em; 
+	color:#000000; font-weight:bold; }
+h2 { margin-top:16px; clear:left; font-weight:bold; color:#000000; 
+	font-size:1.1em; }
+sup,sub { font-size:.6em; }
+
+#controls { clear:left; font-size:1.2em; }
+#controls a { display:block; float:right; padding: 2px 8px 2px 0; }
+
+#longreport, #printlink {
+	display:block;
+	float:left;
+	margin:0 1em 0 0;
+}
+
+@media print {
+	#controls { display:none; }
+	body { margin:0; }
+}
+
+#inputs {margin:0 0 .5em 0;padding:0;list-style:none;}
+#inputs li {margin:0;padding:.2em 0;clear:left;}
+#inputs li strong {float:left;display:block;width:240px;margin-right:10px;text-align:right;color:#333333;}
+#inputs li span {margin:0 0 0 250px;padding:0;display:block;color:#666666;font-size:.8em;}
+
+#summary, #pga { margin:0; }
+#summary th, #pga th {
+	color:#333333;
+	font-weight:bold;
+	text-align:right;
+	padding:2px 16px 2px 8px;
+	width:56px;
+}
+#summary td, #pga td {
+	color:#333333;
+	width:64px;
+	padding:2px 16px 2px 0;
+}
+#summary td span, #pga td span {
+	font-size:.9em;
+	font-style:italic;
+}
+#location {
+	width:600px;
+	margin:0;
+	position:relative;
+}
+#location div {
+	position:absolute;
+	right:0;
+	bottom:0;
+	width:175px;
+	border-left:4px solid #FFFFFF;
+	border-top:4px solid #FFFFFF;
+}
+#location img {
+	display:block;
+	margin:0 auto;
+}
+#location > .marker {
+	left: 50%;
+	margin: -12px 0 0 -12px;
+	position: absolute;
+	top: 50%;
+}
+.outputheader {
+	color:#333333;
+	font-size:.9em;
+	margin:0 0 0 2em;
+}
+.chart {
+	margin:5px;
+}
+.note {
+	padding: 0;
+	font-size: .9em;
+	width: 650px;
+}
+.spectrum-data {
+	display:none;
+}
+#disclaimer {
+	font-size:.8em;
+	color:#666666;
+	border-top:1px solid #999999;
+	padding:5px 0 0;
+	width:650px;
+}

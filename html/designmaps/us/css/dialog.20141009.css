@@ -1,0 +1,103 @@
+#masker {
+	position:absolute;
+	top:0;
+	left:0;
+	width:99%;
+	height:99%;
+	background-color:#000000;
+	opacity:0.3;
+	-moz-opacity:0.3;
+	filter:alpha(opacity=30);
+	margin:0;
+	padding:0;
+	cursor:wait;
+	z-index:99999;
+}
+#io_wrapper {
+	position:absolute;
+	z-index:100000;
+	background-color:#FFFFFF;
+	width:360px;
+	border-left:1px solid #FFFFFF;
+	border-right:1px solid #FFFFFF;
+	padding:0;
+	margin:1em 0;
+	visibility:hidden;
+}
+#io_wrapper h3 {
+	position: relative;
+	top:-1px;
+	margin:0 -1px .25em -1px;
+	padding:.25em 2em .25em 1em;
+	background-color:#333333;
+	color:#EEEEEE;
+	border-bottom:1px solid #666666;
+	border-left:1px solid #666666;
+	border-right:1px solid #666666;
+	border-top:1px solid #CCCCCC;
+}
+#io_wrapper h3 span {
+	position:absolute;
+	right:3px;
+	top:3px;
+	margin:0;
+	padding:0 2px 1px;
+	line-height:1.0;
+	border:1px solid #EEEEEE;
+	font-size:.9em;
+	display:block;
+}
+#io_wrapper h3 span:hover {
+	border-color:#990000;
+	color:#990000;
+	cursor:pointer;
+}
+#io_wrapper form {
+	position:relative;
+	bottom:-1px;
+	margin:0;
+	padding:0 .5em .5em;
+	border-bottom:1px solid #FFFFFF;
+	text-align:center;
+}
+#io_wrapper form label {
+	text-align:left;
+	display:block;
+	font-size:1.1em;
+	color:#333333;
+	margin:0;
+	padding:.25em;
+}
+#io_wrapper form #io_input_val {
+	width:330px;
+	margin:0 auto .5em;
+}
+#io_wrapper form #io_btn_ok,
+#io_wrapper form #io_btn_cancel {
+	margin:0 .5em;
+}
+#io_wrapper form #io_btn_ok {
+	font-weight:bold;
+}
+
+/* Styles for the loader version */
+#io_wrapper.loading {
+	text-align:center;
+	border:1px solid #333333;
+	/* Hack for IE (gets removed later) */
+	background:#FFFFFF url('/images/loader.gif') no-repeat 30px 40px;
+}
+#io_wrapper.loading h3 {
+	background-color:transparent;
+	border:none;
+	color:#333333;
+	font-size:.9em;
+	margin:0;
+}
+#io_wrapper.loading img {
+	position:relative;
+	margin:5px;
+}
+body > #io_wrapper.loading {
+	background-image:none; /* I love forcing IE to bahave */
+}

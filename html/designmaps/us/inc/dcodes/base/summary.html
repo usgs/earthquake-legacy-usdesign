@@ -1,0 +1,106 @@
+<h2 style="margin-bottom:0;">User&ndash;Specified Input</h2>
+{% block inputs %}
+<ul id="inputs">
+	{% if param('reportTitle') %}
+	<li>
+		<strong>Report Title</strong>
+		{{ param('reportTitle') }}
+		<span>{{ today|date('D F j, Y H:i:s e') }}</span>
+	</li>
+	{% endif %}
+	<li>
+		<strong>Building Code Reference Document</strong>
+		{{ edition.name }}{% if edition.variant %}, {{ edition.variant }}{% endif %}
+		{% if GLOBALS._custom_pe50 %}({{ GLOBALS._custom_pe50 }}% in 50 year values){% endif %}
+		<span>
+			(which utilizes {{ edition.basis }})
+		</span>
+	</li>
+	<li>
+		<strong>Site Coordinates</strong>
+		{{ param('latitude')|numfmt('lat') }}, {{ param('longitude')|numfmt('lng') }}
+		{% if param('title') %}<span>&ldquo;{{ param('title') }}&rdquo;</span>{% endif %}
+	</li>
+	<li>
+		<strong>Site Soil Classification</strong>
+		{{ GLOBALS.LONG_SITE_CLASSES[param('siteclass')]|raw }}
+	</li>
+	{% if param('riskcategory', -1) != -1 %}
+	<li>
+		<strong>{{ LABELS.rc|default('Risk Category') }}</strong>
+		{{ GLOBALS.RISK_CATEGORY_ARR[param('riskcategory', -1)]|raw }}
+	</li>
+	{% endif %}
+</ul>
+{% endblock %}
+
+{% block map %}
+<div id="location">
+	<img alt="Zoomed View" src="{{ usd_marked_map(
+		param('latitude'),
+		param('longitude'),
+		'600,275',
+		'zoomed'
+	) }}">
+	<!--
+	<div>
+		<img alt="Wide Area Location" src="{{ usd_marked_map(
+			param('latitude'),
+			param('longitude'),
+			'175,115',
+			'overview'
+		) }}">
+	</div>
+	-->
+	<img alt="Location Marker" src="images/marker_img.gif" class="marker"/>
+</div>
+{% endblock %}
+
+<h2 style="margin-top:.5em;">USGS&ndash;Provided Output</h2>
+{% block output %}
+<table cellpadding="0" cellspacing="0" border="0" id="summary">
+	<tbody>
+		{% autoescape false %}
+		<tr>
+			<th>{{ LABELS.ss_raw }} = </th>
+			<td>{{ data.ss|numfmt }} g</td>
+			<th>{{ LABELS.ss_mod }} = </th>
+			<td>{{ data.srs|numfmt }} g</td>
+			<th>{{ LABELS.ss_dsn }} = </th>
+			<td>{{ data.sds|numfmt }} g</td>
+		</tr>
+		<tr>
+			<th>{{ LABELS.s1_raw }} = </th>
+			<td>{{ data.s1|numfmt }} g</td>
+			<th>{{ LABELS.s1_mod }} = </th>
+			<td>{{ data.sr1|numfmt }} g</td>
+			<th>{{ LABELS.s1_dsn }} = </th>
+			<td>{{ data.sd1|numfmt }} g</td>
+		</tr>
+		{% endautoescape %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block nehrp_ref_note %}
+<p class="note">
+	For information on how the SS and S1 values above have been calculated from
+	probabilistic (risk-targeted) and deterministic ground motions in the
+	direction of maximum horizontal response, please return to the application
+	and select the &ldquo;2009 NEHRP&rdquo; building code reference document.
+</p>
+{% endblock %}
+
+{% block spectra %}
+{% for spectrum_type in SHOWN_SPECTRA %}
+{{ usd_spectrum(spectra[spectrum_type], '310x240') }}
+{% endfor %}
+{% endblock %}
+
+{% if GLOBALS.T_L_PROVIDED %}
+<p class="note">
+	For PGA<sub>M</sub>, T<sub>L</sub>, C<sub>RS</sub>, and C<sub>R1</sub>
+	values, please <a href="{{ detailed_url }}" title="Click for full
+	report">view the detailed report</a>.
+</p>
+{% endif %}

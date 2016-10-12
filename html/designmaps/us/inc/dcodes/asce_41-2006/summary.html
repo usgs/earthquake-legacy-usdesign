@@ -1,0 +1,25 @@
+{% extends "base/summary.html" %}
+
+{% block output %}
+<table cellpadding="0" cellspacing="0" border="0" id="summary">
+	<tbody>
+		{% autoescape false %}
+		<tr>
+			<th>{{ LABELS.ss_raw }} = </th>
+			<td>{{ data.ss|numfmt }} g</td>
+			<th>{{ LABELS.ss_mod }} = </th>
+			<td>{{ data.srs|numfmt }} g</td>
+		</tr>
+		<tr>
+			<th>{{ LABELS.s1_raw }} = </th>
+			<td>{{ data.s1|numfmt }} g</td>
+			<th>{{ LABELS.s1_mod }} = </th>
+			<td>{{ data.sr1|numfmt }} g</td>
+		</tr>
+		{% endautoescape %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block nehrp_ref_note %}
+{% endblock %}
