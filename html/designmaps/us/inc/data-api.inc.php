@@ -34,7 +34,7 @@
 	error_log("Using command: " .  "$latitude $longitude $siteclass $riskcategory $edition $pe50");
 
 	$result = proc_open(
-		"/usr/bin/java -jar ../../lib/DesignTool2009.jar " .
+		"/usr/bin/java -jar ${APP_LIB_DIR}/DesignTool2009.jar " .
 			"$latitude $longitude $siteclass $riskcategory $edition $pe50",
 		array(
 			1 => array('pipe', 'w'),
