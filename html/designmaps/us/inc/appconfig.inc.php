@@ -1,19 +1,6 @@
 <?php
 	include_once $_SERVER['DOCUMENT_ROOT'].'/template/static/functions.inc.php';
 
-	function get_config($envvar) {
-		return (
-			isset($_SERVER['REDIRECT_' . $envvar])
-			? $_SERVER['REDIRECT_' . $envvar]
-			: (
-				isset($_SERVER[$envvar])
-				? $_SERVER[$envvar]
-				: ''
-			)
-		);
-	}
-
-
 	define('PHASE_DEVEL', 0);
 	define('PHASE_RELEASE', 1);
 	// $APP_PHASE = array_search(get_config('APP_PHASE'), array('DEVEL', 'RELEASE'));

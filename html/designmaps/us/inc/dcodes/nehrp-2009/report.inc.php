@@ -1,7 +1,5 @@
 <?php
 	ini_set('error_reporting', E_ALL);
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 
 	$coords = proj2xy($_latitude, $_longitude, $_region);
@@ -9,7 +7,7 @@
 ?>
 
 	<h2>
-		Section 11.4.1 &mdash; Mapped Acceleration Parameters and Risk 
+		Section 11.4.1 &mdash; Mapped Acceleration Parameters and Risk
 		Coefficients
 	</h2>
 
@@ -26,29 +24,29 @@
 	<div class="mapwrapper">
 		<span class="imagecaption">
 			Figure 22&ndash;1: Uniform&ndash;Hazard (2&#37; in 50&ndash;Year)
-			Ground Motions of 0.2-Second Spectral Response Acceleration (5&#37; 
+			Ground Motions of 0.2-Second Spectral Response Acceleration (5&#37;
 			of Critical Damping), Site Class B
 		</span>
 		<?php
 			$img_url_ssuh = 'images/imageplotter.php?type=S_SUH&amp;region=' .
 					$_region . '&amp;ypos=' . $ypos . '&amp;xpos=' . $xpos .
-					'&amp;val=' .  $_data->fmt('ssuh') . '&amp;edition=nehrp-2009' . 
+					'&amp;val=' .  $_data->fmt('ssuh') . '&amp;edition=nehrp-2009' .
 					'&amp;units=g';
 		?>
-		<img src="<?php print $img_url_ssuh; ?>" 
+		<img src="<?php print $img_url_ssuh; ?>"
 			alt="SSUH = <?php print $_data->fmt('ssuh'); ?>" />
 	</div>
 
 	<div class="mapwrapper">
 		<span class="imagecaption">
 			Figure 22&ndash;2: Uniform&ndash;Hazard (2&#37; in 50&ndash;Year)
-			Ground Motions of 1.0-Second Spectral Response Acceleration (5&#37; 
+			Ground Motions of 1.0-Second Spectral Response Acceleration (5&#37;
 			of Critical Damping), Site Class B
 		</span>
 		<?php
 			$img_url_s1uh = 'images/imageplotter.php?type=S_1UH&amp;region=' .
 					$_region . '&amp;ypos=' . $ypos . '&amp;xpos=' . $xpos .
-					'&amp;val=' .  $_data->fmt('s1uh') . '&amp;edition=nehrp-2009' . 
+					'&amp;val=' .  $_data->fmt('s1uh') . '&amp;edition=nehrp-2009' .
 					'&amp;units=g';
 		?>
 		<img src="<?php print $img_url_s1uh; ?>"
@@ -59,7 +57,7 @@
 
 	<div class="mapwrapper">
 		<span class="imagecaption">
-			Figure 22&ndash;3: Risk Coefficient at 0.2-Second Spectral Response 
+			Figure 22&ndash;3: Risk Coefficient at 0.2-Second Spectral Response
 			Period
 		</span>
 		<?php
@@ -73,7 +71,7 @@
 
 	<div class="mapwrapper">
 		<span class="imagecaption">
-			Figure 22&ndash;4: Risk Coefficient at 1.0-Second Spectral Response 
+			Figure 22&ndash;4: Risk Coefficient at 1.0-Second Spectral Response
 			Period
 		</span>
 		<?php
@@ -95,7 +93,7 @@
       <?php
          $img_url_ssd = 'images/imageplotter.php?type=S_SD&amp;region=' .
 				$_region . '&amp;ypos=' . $ypos . '&amp;xpos=' . $xpos .
-				'&amp;val=' .  $_data->fmt('ssd') . 
+				'&amp;val=' .  $_data->fmt('ssd') .
 				'&amp;units=g';
       ?>
       <img src="<?php print $img_url_ssd; ?>"
@@ -110,20 +108,20 @@
       <?php
 			$img_url_s1d = 'images/imageplotter.php?type=S_1D&amp;region=' .
 					$_region . '&amp;ypos=' . $ypos . '&amp;xpos=' . $xpos .
-					'&amp;val=' .  $_data->fmt('s1d') . 
+					'&amp;val=' .  $_data->fmt('s1d') .
 					'&amp;units=g';
       ?>
       <img src="<?php print $img_url_s1d; ?>"
             alt="S1D = <?php print $_data->fmt('s1d'); ?>" />
    </div>
-	
+
 <?php new_page() ?>
 
 	<h2>Section 11.4.2 &mdash; Site Class</h2>
 	<p>
 		The authority having jurisdiction (not the USGS), site-specific
 		geotechnical data, and/or the default has classified the site as
-		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil 
+		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil
 		properties in accordance with Chapter 20.
 	</p>
 	<span class="imagecaption">Table 20.3&ndash;1 Site Classification</span>
@@ -131,7 +129,7 @@
 	<?php include_once 'inc/dcodes/siteclass/usgs-2008.inc.php'; ?>
 
 	<h2>
-		Section 11.4.3 &mdash; Site Coefficients, Risk Coefficients, and 
+		Section 11.4.3 &mdash; Site Coefficients, Risk Coefficients, and
 		Risk&ndash;Targeted Maximum Considered Earthquake (<abbr title="Maximum
 		Considered Earthquake"
 		>MCE<sub>R</sub></abbr>) Spectral Response Acceleration Parameters
@@ -139,8 +137,8 @@
 	<ul class="equations">
 		<li>
 			<span>Equation (11.4&ndash;1):</span>
-			C<sub>RS</sub>S<sub>SUH</sub> = 
-			<?php printf("%s x %s = %s g", $_data->fmt('crs'), $_data->fmt('ssuh'), 
+			C<sub>RS</sub>S<sub>SUH</sub> =
+			<?php printf("%s x %s = %s g", $_data->fmt('crs'), $_data->fmt('ssuh'),
 				dataFormat($_data->num('crs') * $_data->num('ssuh'))); ?>
 		</li>
 		<li>
@@ -155,7 +153,7 @@
 		<li>
 			<span>Equation (11.4&ndash;3):</span>
 			C<sub>R1</sub>S<sub>1UH</sub> =
-			<?php printf("%s x %s = %s g", $_data->fmt('cr1'), $_data->fmt('s1uh'), 
+			<?php printf("%s x %s = %s g", $_data->fmt('cr1'), $_data->fmt('s1uh'),
 				dataFormat($_data->num('cr1') * $_data->num('s1uh'))); ?>
 		</li>
 		<li>
@@ -196,7 +194,7 @@
 	<ul class="equations">
 		<li>
 			<span>Equation (11.4&ndash;5):</span>
-			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> = 
+			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> =
 			<?php printf("%s x %s = %s g", $_data->fmt('fa'), $_data->fmt('ss'), $_data->fmt('srs')); ?>
 		</li>
 		<li>
@@ -223,7 +221,7 @@
 	<h2>Section 11.4.5 &mdash; Design Response Spectrum</h2>
 	<div class="mapwrapper">
 		<span class="imagecaption">
-			Figure 22&ndash;7: Long&ndash;period Transition Period, T<sub>L</sub> 
+			Figure 22&ndash;7: Long&ndash;period Transition Period, T<sub>L</sub>
 			(s)
 		</span>
 		<?php
@@ -290,7 +288,7 @@
 		<li>
 			<span>Equation (11.8&ndash;1):</span>
 			PGA<sub>M</sub> = F<sub>PGA</sub>PGA =
-			<?php printf("%s x %s = %s g", $_data->fmt('fpga'), $_data->fmt('pga'), 
+			<?php printf("%s x %s = %s g", $_data->fmt('fpga'), $_data->fmt('pga'),
 				dataFormat($_data->num('fpga') * $_data->num('pga'))); ?>
 		</li>
 	</ul>

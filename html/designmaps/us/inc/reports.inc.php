@@ -19,51 +19,6 @@
 		}
 	}
 
-	//function twig_func_usd_marked_map($lat, $lng, $size, $type = 'zoomed') {
-		//global $GMAP_PARAMS;
-
-		//$base_url = 'http://maps.google.com/staticmap?';
-		//$params = array(
-			//'key' => GMap2::getGoogleKey(),
-			//'markers' => $lat . ',' . $lng . ',' . (
-				//$type == 'overview' ? 'tinygreen' : 'greenx'
-			//),
-			//'size' => $size,
-		//);
-
-		//if ($type == 'overview') {
-			//$base_url .= html_entity_decode($GMAP_PARAMS[getRegionName($lat, $lng)]) . '&';
-		//} else {
-			//$params['center'] = $lat . ',' . $lng;
-			//$params['zoom'] = 11;
-		//}
-
-		//return $base_url . http_build_query($params);
-	//}
-
-	/*
-	function twig_func_usd_marked_map($lat, $lng, $size, $type = 'zoomed') {
-		global $APP_MAPQUEST_KEY, $MAP_OVERVIEW_PARAMS;
-
-		$base_url = 'http://open.mapquestapi.com/staticmap/v4/getmap?';
-		$params = array(
-			'key' => urldecode($APP_MAPQUEST_KEY),
-			'pcenter' => $lat . ',' . $lng,
-			'size' => $size,
-		);
-
-		if ($type == 'overview') {
-			$params['scalebar'] = 'false';
-			$base_url .= html_entity_decode($MAP_OVERVIEW_PARAMS[getRegionName($lat, $lng)]) . '&';
-		} else {
-			$params['center'] = $lat . ',' . $lng;
-			$params['zoom'] = 11;
-		}
-
-		return $base_url . http_build_query($params);
-	}
-	*/
-
 	function twig_func_usd_marked_map ($lat, $lng, $size, $type = 'zoomed') {
 		$base_url = 'http://services.arcgisonline.com/arcgis/rest/services' .
 				'/NatGeo_World_Map/MapServer/export?';

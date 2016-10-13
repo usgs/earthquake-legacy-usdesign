@@ -1,7 +1,4 @@
 <?php
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
-	
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 ?>
 	<h2>
@@ -24,12 +21,12 @@
 		<?php } else { ?>
 		<?php if ($_EDITION_VARIANT == 'BSE-1E') { ?>
 		<p>
-			20%/50-year maximum direction spectral response acceleration for 
+			20%/50-year maximum direction spectral response acceleration for
 			0.2s and 1.0s periods, respectively:
 		</p>
 		<?php } else if ($_EDITION_VARIANT == 'BSE-2E') { ?>
 		<p>
-			5%/50-year maximum direction spectral response acceleration for 
+			5%/50-year maximum direction spectral response acceleration for
 			0.2s and 1.0s periods, respectively:
 		</p>
 		<?php } ?>
@@ -49,7 +46,7 @@
 	<p>
 		The authority having jurisdiction (not the USGS), site-specific
 		geotechnical data, and/or the default has classified the site as
-		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil 
+		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil
 		properties in accordance with Section 2.4.1.6.1.
 	</p>
 	<?php include_once 'inc/dcodes/siteclass/usgs-2002.inc.php'; // Not typo, 2002 is correct ?>
@@ -91,139 +88,139 @@
 		<?php if ($_EDITION_VARIANT == 'BSE-1N') { ?>
 		<li>
 			<span>Provided as a reference for Equation (2-4):</span>
-			S<sub>XS,BSE-2N</sub> = F<sub>a</sub>S<sub>S,BSE-2N</sub> = 
+			S<sub>XS,BSE-2N</sub> = F<sub>a</sub>S<sub>S,BSE-2N</sub> =
 			<?php printf("%s x %s g = %3.3f g",
-				$_data->fmt('fa'), $_data->fmt('ss'), 
+				$_data->fmt('fa'), $_data->fmt('ss'),
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION)); ?>
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-5):</span>
-			S<sub>X1,BSE-2N</sub> = F<sub>v</sub>S<sub>1,BSE-2N</sub> = 
+			S<sub>X1,BSE-2N</sub> = F<sub>v</sub>S<sub>1,BSE-2N</sub> =
 			<?php printf("%s x %s g = %3.3f g",
-				$_data->fmt('fv'), $_data->fmt('s1'), 
+				$_data->fmt('fv'), $_data->fmt('s1'),
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION)); ?>
 		</li>
 		<li>
 			<span>Equation (2&ndash;4):</span>
-			S<sub>XS,BSE-1N</sub> = &#8532; x S<sub>XS,BSE-2N</sub> = 
+			S<sub>XS,BSE-1N</sub> = &#8532; x S<sub>XS,BSE-2N</sub> =
 			<?php printf("&#8532; x %3.3f g = %3.3f g",
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION),
-				round($_data->num('fa') * $_data->num('ss'), $PRECISION) * 2 / 3); ?> 
+				round($_data->num('fa') * $_data->num('ss'), $PRECISION) * 2 / 3); ?>
 		</li>
 		<li>
 			<span>Equation (2&ndash;5):</span>
-			S<sub>X1,BSE-1N</sub> = &#8532; x S<sub>X1,BSE-2N</sub> = 
+			S<sub>X1,BSE-1N</sub> = &#8532; x S<sub>X1,BSE-2N</sub> =
 			<?php printf("&#8532; x %3.3f g = %3.3f g",
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION),
-				round($_data->num('fv') * $_data->num('s1'), $PRECISION) * 2 / 3); ?> 
+				round($_data->num('fv') * $_data->num('s1'), $PRECISION) * 2 / 3); ?>
 		</li>
 		<?php } else if ($_EDITION_VARIANT == 'BSE-2E') { ?>
 		<li>
 			<span>Provided as a reference for Equation (2-4):</span>
-			F<sub>a</sub><?php print $LABELS['ss_raw'] ?> = 
+			F<sub>a</sub><?php print $LABELS['ss_raw'] ?> =
 			<?php printf('%s x %s g = %3.3f g',
 				$_data->fmt('fa'),
 				$_data->fmt('ss'),
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION)
-			); ?> 
+			); ?>
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-5):</span>
-			F<sub>v</sub><?php print $LABELS['s1_raw'] ?> = 
+			F<sub>v</sub><?php print $LABELS['s1_raw'] ?> =
 			<?php printf('%s x %s g = %3.3f g',
 				$_data->fmt('fv'),
 				$_data->fmt('s1'),
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION)
-			); ?> 
+			); ?>
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-4):</span>
-			S<sub>XS,BSE-2N</sub> = F<sub>a</sub>S<sub>S,BSE-2N</sub> = 
+			S<sub>XS,BSE-2N</sub> = F<sub>a</sub>S<sub>S,BSE-2N</sub> =
 			<?php echo $_data->fmt('bse_2n_sxs') ?> g
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-5):</span>
-			S<sub>X1,BSE-2N</sub> = F<sub>v</sub>S<sub>1,BSE-2N</sub> = 
+			S<sub>X1,BSE-2N</sub> = F<sub>v</sub>S<sub>1,BSE-2N</sub> =
 			<?php echo $_data->fmt('bse_2n_sx1') ?> g
 		</li>
 		<li>
 			<span>Equation (2&ndash;4):</span>
-			S<sub>XS,BSE-2E</sub> = MIN[F<sub>a</sub><?php print $LABELS['ss_raw'] ?>, S<sub>XS,BSE-2N</sub>] = 
+			S<sub>XS,BSE-2E</sub> = MIN[F<sub>a</sub><?php print $LABELS['ss_raw'] ?>, S<sub>XS,BSE-2N</sub>] =
 			<?php printf('MIN[%3.3fg, %sg] = %sg',
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION),
 				$_data->fmt('bse_2n_sxs'),
 				$_data->fmt('srs')
-			); ?> 
+			); ?>
 		</li>
 		<li>
 			<span>Equation (2&ndash;5):</span>
-			S<sub>X1,BSE-2E</sub> = MIN[F<sub>v</sub><?php print $LABELS['s1_raw'] ?>, S<sub>X1,BSE-2N</sub>] = 
+			S<sub>X1,BSE-2E</sub> = MIN[F<sub>v</sub><?php print $LABELS['s1_raw'] ?>, S<sub>X1,BSE-2N</sub>] =
 			<?php printf('MIN[%3.3fg, %sg] = %sg',
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION),
 				$_data->fmt('bse_2n_sx1'),
 				$_data->fmt('sr1')
-			); ?> 
+			); ?>
 		</li>
 		<?php } else if ($_EDITION_VARIANT == 'BSE-1E') { ?>
 		<li>
 			<span>Provided as a reference for Equation (2-4):</span>
-			F<sub>a</sub><?php print $LABELS['ss_raw'] ?> = 
+			F<sub>a</sub><?php print $LABELS['ss_raw'] ?> =
 			<?php printf('%s x %s g = %3.3f g',
 				$_data->fmt('fa'),
 				$_data->fmt('ss'),
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION)
-			); ?> 
+			); ?>
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-5):</span>
-			F<sub>v</sub><?php print $LABELS['s1_raw'] ?> = 
+			F<sub>v</sub><?php print $LABELS['s1_raw'] ?> =
 			<?php printf('%s x %s g = %3.3f g',
 				$_data->fmt('fv'),
 				$_data->fmt('s1'),
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION)
-			); ?> 
+			); ?>
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-4):</span>
-			S<sub>XS,BSE-1N</sub> = &#8532; x S<sub>XS,BSE-2N</sub> = &#8532; x F<sub>a</sub>S<sub>S,BSE-2N</sub> = 
+			S<sub>XS,BSE-1N</sub> = &#8532; x S<sub>XS,BSE-2N</sub> = &#8532; x F<sub>a</sub>S<sub>S,BSE-2N</sub> =
 			<?php echo $_data->fmt('bse_1n_sxs'); ?> g
 		</li>
 		<li>
 			<span>Provided as a reference for Equation (2-5):</span>
-			S<sub>X1,BSE-1N</sub> = &#8532; x S<sub>X1,BSE-2N</sub> = &#8532; x F<sub>v</sub>S<sub>1,BSE-2N</sub> = 
+			S<sub>X1,BSE-1N</sub> = &#8532; x S<sub>X1,BSE-2N</sub> = &#8532; x F<sub>v</sub>S<sub>1,BSE-2N</sub> =
 			<?php echo $_data->fmt('bse_1n_sx1'); ?> g
 		</li>
 		<li>
 			<span>Equation (2&ndash;4):</span>
-			S<sub>XS,BSE-1E</sub> = MIN[F<sub>a</sub><?php print $LABELS['ss_raw'] ?>, S<sub>XS,BSE-1N</sub>] = 
+			S<sub>XS,BSE-1E</sub> = MIN[F<sub>a</sub><?php print $LABELS['ss_raw'] ?>, S<sub>XS,BSE-1N</sub>] =
 			<?php printf('MIN[%3.3fg, %sg] = %sg',
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION),
 				$_data->fmt('bse_1n_sxs'),
 				$_data->fmt('srs')
-			); ?> 
+			); ?>
 		</li>
 		<li>
 			<span>Equation (2&ndash;5):</span>
-			S<sub>X1,BSE-1E</sub> = MIN[F<sub>v</sub><?php print $LABELS['ss_raw'] ?>, S<sub>X1,BSE-1N</sub>] = 
+			S<sub>X1,BSE-1E</sub> = MIN[F<sub>v</sub><?php print $LABELS['ss_raw'] ?>, S<sub>X1,BSE-1N</sub>] =
 			<?php printf('MIN[%3.3fg, %sg] = %sg',
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION),
 				$_data->fmt('bse_1n_sx1'),
 				$_data->fmt('sr1')
-			); ?> 
+			); ?>
 		</li>
 		<?php } else { ?>
 		<li>
 			<span>Equation (2&ndash;4):</span>
-			<?php echo $LABELS['ss_mod'] ?></sub> = F<sub>a</sub><?php echo $LABELS['ss_raw'] ?></sub> = 
+			<?php echo $LABELS['ss_mod'] ?></sub> = F<sub>a</sub><?php echo $LABELS['ss_raw'] ?></sub> =
 			<?php printf("%s x %s g = %3.3f g",
-				$_data->fmt('fa'), $_data->fmt('ss'), 
+				$_data->fmt('fa'), $_data->fmt('ss'),
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION)); ?>
 		</li>
 		<li>
 			<span>Equation (2&ndash;5):</span>
-			<?php echo $LABELS['s1_mod'] ?></sub> = F<sub>v</sub><?php echo $LABELS['s1_raw'] ?></sub> = 
+			<?php echo $LABELS['s1_mod'] ?></sub> = F<sub>v</sub><?php echo $LABELS['s1_raw'] ?></sub> =
 			<?php printf("%s x %s g = %3.3f g",
-				$_data->fmt('fv'), $_data->fmt('s1'), 
+				$_data->fmt('fv'), $_data->fmt('s1'),
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION)); ?>
 		</li>
 		<?php } ?>
@@ -255,8 +252,8 @@
 	</h2>
 	<div class="mapwrapper">
 		<span class="imagecaption">
-			The General Vertical Response Spectrum is 
-			determined by multiplying the General Horizontal Response Spectrum 
+			The General Vertical Response Spectrum is
+			determined by multiplying the General Horizontal Response Spectrum
 			by &#8532;.
 		</span>
 		<?php outputSpectrumChart(

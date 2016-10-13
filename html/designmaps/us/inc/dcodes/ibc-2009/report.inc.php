@@ -1,7 +1,4 @@
 <?php
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
-
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 	include_once $APP_WEB_DIR . '/inc/designcategory.inc.php';
 ?>
@@ -76,16 +73,16 @@
 	<ul class="equations">
 		<li>
 			<span>Equation (16-37; 16-36):</span>
-			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> = 
-			<?php printf("%s x %s = %s g", 
+			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> =
+			<?php printf("%s x %s = %s g",
 			             $_data->fmt('fa'),
 			             $_data->fmt('ss'),
 						 $_smsr); ?>
 		</li>
 		<li>
 			<span>Equation (16-38; 16-37):</span>
-			S<sub>M1</sub> = F<sub>v</sub>S<sub>1</sub> = 
-			<?php printf("%s x %s = %s g", 
+			S<sub>M1</sub> = F<sub>v</sub>S<sub>1</sub> =
+			<?php printf("%s x %s = %s g",
 			             $_data->fmt('fv'),
 			             $_data->fmt('s1'),
 						 $_sm1r); ?>
@@ -116,7 +113,7 @@
 		</span>
 		<?php outputDCTable(
 			$_riskcategory,
-			'sds', $_data->num('sds'), 
+			'sds', $_data->num('sds'),
 			$_data->designcategory
 		); ?>
 	</div>
@@ -127,12 +124,12 @@
 		</span>
 		<?php outputDCTable(
 			$_riskcategory,
-			'sd1', $_data->num('sd1'), 
+			'sd1', $_data->num('sd1'),
 			$_data->designcategory
 		); ?>
 	</div>
 	<p>
-	Note: When S<sub>1</sub> is greater than or equal to 0.75g, the Seismic Design Category 
+	Note: When S<sub>1</sub> is greater than or equal to 0.75g, the Seismic Design Category
 	is <strong>E</strong> for buildings in Occupancy Categories I, II, and III, and
 	<strong>F</strong> for those in Occupancy Category IV, irrespective of the above.
 	</p>

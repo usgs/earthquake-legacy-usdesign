@@ -1,7 +1,4 @@
 <?php
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
-	
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 ?>
 	<h2>Section 1.6.1 &ndash; General Procedure for Hazard Due to Ground Shaking</h2>
@@ -22,7 +19,7 @@
 	<p>
 		The authority having jurisdiction (not the USGS), site-specific
 		geotechnical data, and/or the default has classified the site as
-		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil 
+		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil
 		properties in accordance with Section 1.6.1.4.
 	</p>
 	<?php include_once 'inc/dcodes/siteclass/usgs-2002.inc.php'; ?>
@@ -59,16 +56,16 @@
 	<ul class="equations">
 		<li>
 			<span>Equation (1&ndash;4):</span>
-			S<sub>XS</sub> = F<sub>a</sub>S<sub>S</sub> = 
+			S<sub>XS</sub> = F<sub>a</sub>S<sub>S</sub> =
 			<?php printf("%s x %s = %3.3f g",
-				$_data->fmt('fa'), $_data->fmt('ss'), 
+				$_data->fmt('fa'), $_data->fmt('ss'),
 				round($_data->num('fa') * $_data->num('ss'), $PRECISION)); ?>
 		</li>
 		<li>
 			<span>Equation (1&ndash;5):</span>
-			S<sub>X1</sub> = F<sub>v</sub>S<sub>1</sub> = 
+			S<sub>X1</sub> = F<sub>v</sub>S<sub>1</sub> =
 			<?php printf("%s x %s = %3.3f g",
-				$_data->fmt('fv'), $_data->fmt('s1'), 
+				$_data->fmt('fv'), $_data->fmt('s1'),
 				round($_data->num('fv') * $_data->num('s1'), $PRECISION)); ?>
 		</li>
 	</ul>
@@ -112,7 +109,7 @@
 		<span class="imagecaption">
 			Figure 11.4&ndash;1: Design Response Spectrum
 		</span>
-		<img alt="Chart" class="chart" src="<?php 
+		<img alt="Chart" class="chart" src="<?php
 			print preg_replace('/chtt.*?;/','detailed=true&amp;',
 					str_replace(" ", "+", $_images[0])) ?>&amp;chs=550x360" />
 	</div>
@@ -128,7 +125,7 @@
 			The MCE Response Spectrum is determined by
 			multiplying the design response spectrum by 1.5.
 		</span>
-		<img alt="Chart" class="chart" src="<?php 
+		<img alt="Chart" class="chart" src="<?php
 			print preg_replace('/chtt.*?;/','detailed=true&amp;',
 					str_replace(" ", "+", $_images[1])) ?>&amp;chs=550x360" />
 	</div>

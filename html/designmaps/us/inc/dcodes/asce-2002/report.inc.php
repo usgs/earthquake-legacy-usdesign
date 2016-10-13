@@ -1,7 +1,4 @@
 <?php
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
-	
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 ?>
 	<h2>Section 11.4.1 &mdash; Mapped Acceleration Parameters</h2>
@@ -54,14 +51,14 @@
 	<ul class="equations">
 		<li>
 			<span>Equation (11.4&ndash;1):</span>
-			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> = 
-			<?php printf("%s x %s = %3.3f g", $_far, $_ssr, 
+			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> =
+			<?php printf("%s x %s = %3.3f g", $_far, $_ssr,
 				round($_fa * $_ss, $PRECISION)); ?>
 		</li>
 		<li>
 			<span>Equation (11.4&ndash;2):</span>
-			S<sub>M1</sub> = F<sub>v</sub>S<sub>1</sub> = 
-			<?php printf("%s x %s = %3.3f g", $_fvr, $_s1r, 
+			S<sub>M1</sub> = F<sub>v</sub>S<sub>1</sub> =
+			<?php printf("%s x %s = %3.3f g", $_fvr, $_s1r,
 				round($_fv * $_s1, $PRECISION)); ?>
 		</li>
 	</ul>
@@ -103,7 +100,7 @@
 		<span class="imagecaption">
 			Figure 11.4&ndash;1: Design Response Spectrum
 		</span>
-		<img alt="Chart" class="chart" src="<?php 
+		<img alt="Chart" class="chart" src="<?php
 			print preg_replace('/chtt.*?;/','detailed=true&amp;',
 					str_replace(" ", "+", $_images[0])) ?>&amp;chs=550x360" />
 	</div>
@@ -111,7 +108,7 @@
 <?php new_page() ?>
 
 	<h2>
-		Section 11.4.6 &mdash; Risk-Targeted Maximum Considered Earthquake 
+		Section 11.4.6 &mdash; Risk-Targeted Maximum Considered Earthquake
 		(MCE<sub>R</sub>) Response Spectrum
 	</h2>
 	<div class="mapwrapper">
@@ -119,7 +116,7 @@
 			The MCE<sub>R</sub> Response Spectrum is determined by
 			multiplying the design response spectrum by 1.5.
 		</span>
-		<img alt="Chart" class="chart" src="<?php 
+		<img alt="Chart" class="chart" src="<?php
 			print preg_replace('/chtt.*?;/','detailed=true&amp;',
 					str_replace(" ", "+", $_images[1])) ?>&amp;chs=550x360" />
 	</div>
