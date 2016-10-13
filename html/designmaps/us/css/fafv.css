@@ -1,0 +1,22 @@
+.fafv {
+	border-top:3px double #333333;
+	border-bottom:1px solid #333333;
+	width:550px;
+}
+.fafv .headerrow th {
+	border-bottom:1px solid #333333;
+}
+.fafv thead th { border-bottom:1px solid #333333; }
+.fafv tbody tr:last-child td { border-top: 3px double #333333; }
+.fafv th, .fafv td {
+	padding:.5em 1em;
+	background-color:#FFFFFF;
+	text-align:center;
+}
+.fafv td.lowerbound, .fafv td.upperbound, .fafv th.lowerbound, .fafv th.upperbound {
+	background-color:#FFFF99;
+	border-top:2px solid #333333;
+	border-bottom:2px solid #333333;
+}
+.fafv td.lowerbound, .fafv th.lowerbound { border-left:2px solid #333333; }
+.fafv td.upperbound, .fafv th.upperbound { border-right:2px solid #333333; }

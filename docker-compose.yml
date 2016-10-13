@@ -1,0 +1,9 @@
+php-apache:
+  image: php:5.6-apache
+  volumes:
+    - ./html:/var/www/html
+    - ./output:/var/www/html/designmaps/us/output
+    - ./lib:/var/www/lib
+    - ./data:/usr/local/tomcat/webapps/dataFiles
+  ports:
+    - 8080:80

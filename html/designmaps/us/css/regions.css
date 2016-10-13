@@ -1,0 +1,27 @@
+#regiondata thead th:hover { color:#000000; }
+#regiondata thead th { 
+	background-color:#CCCCCC;
+	line-height: 2.5;
+	cursor:pointer;
+}
+#regiondata th, #regiondata td { 
+	background-color:#EEEEEE;
+	vertical-align:middle;
+}
+#regiondata .region { font-weight:bold; text-align:left; }
+#regiondata td { text-align:center; padding:3px 5px; }
+#regiondata .location {
+	display:block;
+	font-size:.8em;
+}
+
+/** These are Javascript-Only styles **/
+.activetable tbody tr:hover td, .activetable tbody tr:hover th {
+	background-color:#FFFFEE !important;
+}
+.activetable tbody td:hover {
+	color:#0033FF;
+	padding:2px 4px; /* Fudge off some padding so we can add border */
+	border:1px solid #333333; /* Add a border to further highlight */
+	cursor:pointer;
+}

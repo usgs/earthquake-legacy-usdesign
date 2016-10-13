@@ -1,0 +1,16 @@
+{% extends "base/summary.html" %}
+
+{% block nehrp_ref_note %}
+<p class="note">
+	For information on how the S<sub>S</sub> and S<sub>1</sub> values above have
+	been calculated from probabilistic (risk-targeted) and deterministic ground
+	motions in the direction of maximum horizontal
+	response, please <a href="{{ detailed_url }}" title="Click for full
+	report">view the detailed report</a>.
+</p>
+{% endblock %}
+
+{% block spectra %}
+{{ usd_spectrum(spectra['mce'], '310x240', {chtt: 'MCE_R Spectrum'}) }}
+{{ usd_spectrum(spectra['design'], '310x240') }}
+{% endblock %}

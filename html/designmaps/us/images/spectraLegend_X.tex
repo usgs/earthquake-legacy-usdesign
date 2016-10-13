@@ -1,0 +1,19 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+\begin{equation*}
+\begin{cases}
+0 < T < T_0: &S_{XS} \left[\left(\frac{5}{B_1} - 2\right)\frac{T}{T_S} + 0.4\right
+t]\\
+T_0 < T < T_S: &\frac{S_{XS}}{B_1}\\
+T_S < T \le T_L: &\frac{S_{X1}}{B_1 T}\\
+T > T_L: &\frac{T_L S_{X1}}{B_1 T^2}
+\end{cases}
+\end{equation*}
+\end{document}  

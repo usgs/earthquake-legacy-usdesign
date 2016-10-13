@@ -1,0 +1,31 @@
+{% extends "base/summary.html" %}
+
+{% block nehrp_ref_note %}
+{% endblock %}
+
+{% block output %}
+<table style="float:left;width:280px;" cellpadding="0" cellspacing="0" border="0" id="summary">
+	<tbody>
+		{% autoescape false %}
+		<tr>
+			<th>PGA = </th>
+			<td>{{ data.pga|numfmt }} g</td>
+			<th>A<sub>s</sub> = </th>
+			<td>{{ data.as|numfmt }} g</td>
+		</tr>
+		<tr>
+			<th>{{ LABELS.ss_raw }} = </th>
+			<td>{{ data.ss|numfmt }} g</td>
+			<th>{{ LABELS.ss_dsn }} = </th>
+			<td>{{ data.sds|numfmt }} g</td>
+		</tr>
+		<tr>
+			<th>{{ LABELS.s1_raw }} = </th>
+			<td>{{ data.s1|numfmt }} g</td>
+			<th>{{ LABELS.s1_dsn }} = </th>
+			<td>{{ data.sd1|numfmt }} g</td>
+		</tr>
+		{% endautoescape %}
+	</tbody>
+</table>
+{% endblock %}
