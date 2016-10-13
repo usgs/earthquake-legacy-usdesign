@@ -5,15 +5,16 @@
 	include_once 'inc/input_params.inc.php';
 
 	if (!strstr($TITLE, 'Report')) { $TITLE .= ' Summary Report'; }
-	$STYLESHEETS = 'css/summary.css';
+	$HEAD_LAST = '
+		<link rel="stylesheet" href="css/summary.css"/>
+	';
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/template/template.inc.php';
-	$_GOOGLE_MAPS_KEY = GMap2::getGoogleKey();
 	$_data = loadResultXML();
 ?>
 	<div id="controls">
 		<a id="printlink" href="javascript:void(null);"
 			onclick="window.print();">Print</a>
-		<a id="longreport" href="report.php?<?php  
+		<a id="longreport" href="report.php?<?php
 			print htmlspecialchars($_SERVER['QUERY_STRING']); ?>"
 			title="Click for full report">View Detailed Report</a>
 	</div>
@@ -65,12 +66,12 @@
 		'LABELS' => $variant_labels,
 		'GLOBALS' => $GLOBALS // TEMPORARY HACK - JPW 2011-11-04
 	));
-?>	
+?>
 
 <div id="disclaimer">
 	Although this information is a product of the U.S. Geological Survey, we
 	provide no warranty, expressed or implied, as to the accuracy of the data
-	contained therein. This tool is not a substitute for technical 
+	contained therein. This tool is not a substitute for technical
 	subject-matter knowledge.
 </div>
 <script type="text/javascript">/* <![CDATA[ */
