@@ -1,9 +1,8 @@
 <?php
 	include_once 'appconfig.inc.php';
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/template/widgets/gmaps/GMap2.class.php';
 	include_once 'libs/Twig/Autoloader.php';
 	Twig_Autoloader::register();
-	
+
 	function dataFormat($num, $prec = null) {
 		global $PRECISION;
 		$prec = is_null($prec) ? $PRECISION : $prec;
@@ -223,7 +222,7 @@
 			unset($params['chtt']);
 			$params['detailed'] = 'true';
 		}
-	
+
 		printf(
 			'<img src="%s/images/spectra.php?%s" width="%d" height="%d" ' .
 			'class="chart" alt="%s" />',
@@ -247,7 +246,7 @@
 		global $MAP_URL, $MAP_TEXT, $FIGURES, $_region;
 		print '<a class="citation" href="';
 
-		if (isset($FIGURES['special_filenames']) && 
+		if (isset($FIGURES['special_filenames']) &&
 			isset($FIGURES['special_filenames'][$FIGURES[$type][$_region]])) {
 			print $FIGURES['special_filenames'][$FIGURES[$type][$_region]];
 		} else {
