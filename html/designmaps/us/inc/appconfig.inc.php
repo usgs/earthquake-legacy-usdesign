@@ -19,6 +19,7 @@
 	$APP_PHASE = PHASE_RELEASE;
 	$APP_WEB_DIR = '/var/www/html/designmaps/us';
 	$APP_LIB_DIR = '/var/www/lib';
+	$APP_DATA_DIR = '/var/www/data';
 
 	$APP_URL_PATH = '/designmaps/us';
 
