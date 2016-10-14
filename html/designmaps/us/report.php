@@ -1,13 +1,23 @@
 <?php
-	ini_set('error_reporting', -1);
+	//ini_set('error_reporting', -1);
 	include_once 'inc/appconfig.inc.php';
 	include_once 'inc/appfunctions.inc.php';
 	include_once 'inc/input_params.inc.php';
 	include_once 'inc/FaFvCalc.class.php';
 	include_once 'inc/reports.inc.php';
-	if (!strstr($TITLE, 'Report')) { $TITLE .= ' Detailed Report'; }
-	$STYLESHEETS = 'css/report.css,css/fafv.css';
-	$SCRIPTS = 'js/citations.js';
+
+	if (!strstr($TITLE, 'Report')) {
+		$TITLE .= ' Detailed Report';
+	}
+
+	$HEAD_LAST = '
+		<link rel="stylesheet" href="css/report.css"/>
+		<link rel="stylesheet" href="css/fafv.css"/>
+	';
+
+	$FOOT = '
+		<script src="js/citations.js"></script>
+	';
 
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/template/template.inc.php';
 
@@ -38,7 +48,7 @@
 <div id="controls">
 	<a id="printlink" href="javascript:void(null);"
 		onclick="window.print();">Print</a>
-	<a href="summary.php?<?php 
+	<a href="summary.php?<?php
 		print htmlspecialchars($_SERVER['QUERY_STRING']); ?>"
 		title="Click to view short report" id="shortreport">
 		View Summary Report

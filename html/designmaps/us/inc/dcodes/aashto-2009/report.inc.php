@@ -1,7 +1,4 @@
 <?php
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
-	
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 	include_once $APP_WEB_DIR . '/inc/designcategory.inc.php';
 ?>
@@ -37,7 +34,7 @@
 	<p>
 		The authority having jurisdiction (not the USGS), site-specific
 		geotechnical data, and/or the default has classified the site as
-		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil 
+		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil
 		properties in accordance with Article 3.4.2.
 	</p>
 	<span class="imagecaption">Table 3.4.2.1&ndash;1 Site Class Definitions</span>
@@ -112,7 +109,7 @@
 			<?php echo $_data->fmt('fv'), ' x ', $_data->fmt('s1'), ' = ', $_data->fmt('sd1'); ?> g
 		</li>
 	</ul>
-	
+
 	<div class="mapwrapper">
 		<span class="imagecaption">
 			Figure 3.4.1-1: Design Response Spectrum
@@ -131,12 +128,12 @@
 	<h2>Article 3.5 - Selection of Seismic Design Category (SDC)</h2>
 	<div class="mapwrapper" style="margin: 16px 0">
 		<span class="imagecaption">
-			Table 3.5-1&mdash;Partitions for Seismic Design Categories A, B, C, 
+			Table 3.5-1&mdash;Partitions for Seismic Design Categories A, B, C,
 			and D
 		</span>
 		<?php outputDCTable(
 			$_riskcategory,
-			'sd1-aashto', $_data->num('sd1'), 
+			'sd1-aashto', $_data->num('sd1'),
 			$_data->designcategory
 		); ?>
 	</div>

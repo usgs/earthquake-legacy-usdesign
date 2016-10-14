@@ -1,7 +1,4 @@
 <?php
-	$APP_WEB_DIR = (isset($_SERVER['APP_WEB_DIR'])) ?
-		$_SERVER['APP_WEB_DIR'] : $_SERVER['REDIRECT_APP_WEB_DIR'];
-	
 	include_once $APP_WEB_DIR . '/inc/constants.inc.php';
 	include_once $APP_WEB_DIR . '/inc/designcategory.inc.php';
 ?>
@@ -31,7 +28,7 @@
 	<p>
 		The authority having jurisdiction (not the USGS), site-specific
 		geotechnical data, and/or the default has classified the site as
-		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil 
+		<?php print $SITE_CLASS_ARR[$_siteclass]; ?>, based on the site soil
 		properties in accordance with Chapter 20.
 	</p>
 	<span class="imagecaption">Table 20.3&ndash;1 Site Classification</span>
@@ -78,16 +75,16 @@
 	<ul class="equations">
 		<li>
 			<span>Equation (11.4&ndash;1):</span>
-			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> = 
+			S<sub>MS</sub> = F<sub>a</sub>S<sub>S</sub> =
 			<?php printf("%s x %s = %3.3f g",
-				dataFormat($_fa), $_data->fmt('ss'), 
+				dataFormat($_fa), $_data->fmt('ss'),
 				round($_fa * $_data->num('ss'), $PRECISION)); ?>
 		</li>
 		<li>
 			<span>Equation (11.4&ndash;2):</span>
-			S<sub>M1</sub> = F<sub>v</sub>S<sub>1</sub> = 
+			S<sub>M1</sub> = F<sub>v</sub>S<sub>1</sub> =
 			<?php printf("%s x %s = %3.3f g",
-				dataFormat($_fv), $_data->fmt('s1'), 
+				dataFormat($_fv), $_data->fmt('s1'),
 				round($_fv * $_data->num('s1'), $PRECISION)); ?>
 		</li>
 	</ul>
@@ -138,7 +135,7 @@
 <?php new_page() ?>
 
 	<h2>
-		Section 11.4.6 &mdash; Risk-Targeted Maximum Considered Earthquake 
+		Section 11.4.6 &mdash; Risk-Targeted Maximum Considered Earthquake
 		(MCE<sub>R</sub>) Response Spectrum
 	</h2>
 	<div class="mapwrapper">
@@ -211,28 +208,28 @@
 	<h2>Section 11.6 &mdash; Seismic Design Category</h2>
 	<div class="mapwrapper" style="margin: 16px 0">
 		<span class="imagecaption">
-			Table 11.6-1 Seismic Design Category Based on Short Period Response 
+			Table 11.6-1 Seismic Design Category Based on Short Period Response
 			Acceleration Parameter
 		</span>
 		<?php outputDCTable(
 			$_riskcategory,
-			'sds', $_data->num('sds'), 
+			'sds', $_data->num('sds'),
 			$_data->designcategory
 		); ?>
 	</div>
 	<div class="mapwrapper" style="margin: 16px 0">
 		<span class="imagecaption">
-			Table 11.6-2 Seismic Design Category Based on 1-S Period Response 
+			Table 11.6-2 Seismic Design Category Based on 1-S Period Response
 			Acceleration Parameter
 		</span>
 		<?php outputDCTable(
 			$_riskcategory,
-			'sd1', $_data->num('sd1'), 
+			'sd1', $_data->num('sd1'),
 			$_data->designcategory
 		); ?>
 	</div>
 	<p>
-	Note: When S<sub>1</sub> is greater than or equal to 0.75g, the Seismic Design Category 
+	Note: When S<sub>1</sub> is greater than or equal to 0.75g, the Seismic Design Category
 	is <strong>E</strong> for buildings in Risk Categories I, II, and III, and
 	<strong>F</strong> for those in Risk Category IV, irrespective of the above.
 	</p>
