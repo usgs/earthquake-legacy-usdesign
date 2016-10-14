@@ -1,17 +1,16 @@
 <?php
 	require_once 'inc/appconfig.inc.php';
 	$TITLE      = 'U.S. Seismic Design Maps';
-	$WIDGETS     = 'dialog';
-	// $SCRIPTS     = 'js/locationview.js,js/conf.js.php,js/application.js';
-	// $STYLESHEETS = 'css/locationview.css,css/application.css';
-	$STYLES = '.addthis_button { display: none }';
 	$CONTACT = 'smcgowan@usgs.gov';
 	$HEAD = '
 		<link rel="stylesheet" href="css/dialog.20141009.css"/>
 		<link rel="stylesheet" href="css/locationview.css"/>
 		<link rel="stylesheet" href="css/application.css"/>
-		<!--[if lt IE 9]><link rel="stylesheet" type="text/css"
-				href="/template/widgets/geocoder/leaflet.ie.css"/><![endif]-->
+		<style>
+			.addthis_button {
+				display: none;
+			}
+		</style>
 	';
 	$FOOT = '
 		<script src="js/dialog.20141009.js"></script>
