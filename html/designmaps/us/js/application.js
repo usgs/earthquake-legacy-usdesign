@@ -278,7 +278,6 @@ var usdtool = {};
 							{title:'Error: Risk Category Not Set'}
 						);
 				} else {
-					window.IO.showLoading('Computing Results');
 					usdtool.results.submit();
 				}
 			});
@@ -291,14 +290,16 @@ var usdtool = {};
 				parseFloat(latitude),
 				parseFloat(longitude)
 				)) {
-				IO.alert(
+				window.IO.alert(
 					'The location was not within the regions supported by ' +
 					'this tool. Please select a valid location.',
 					{title: 'Location Out of Bounds'}
 				);
 				return false;
 			}
-			var siteclass;
+
+      window.IO.showLoading('Computing Results');
+      var siteclass;
 			siteclass = $('#siteclass').val() || -1;
 			var riskcategory = $('#riskcategory').val() || -1;
 			var edition = $('#designCode').val();
@@ -370,9 +371,13 @@ var usdtool = {};
 				var success = false;
 				alertPopupBlocker = function() {
 					if (!success) {
-						$("#popupBlocker").dialog();
+            var div = document.createElement('div');
+            div.innerHTML = document.querySelector('#popupBlocker').innerHTML;
+						window.IO.alert(div, {
+              ctype: 'text/html'
+            });
 					}
-					window.IO.closeDialog(null);
+				window.IO.closeDialog(null);
 				};
 				usdtool.results.POPUP_TIMEOUT = setTimeout('alertPopupBlocker()', 3000);
 				var results = window.open(url + $.param(params), 'report', opts);
