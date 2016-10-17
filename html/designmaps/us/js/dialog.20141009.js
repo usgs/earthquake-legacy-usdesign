@@ -194,7 +194,7 @@ Dialog.prototype = {
 		// Create a custom loading gif...
 		var loadingGif = document.createElement('img');
 		loadingGif.alt = 'Loading...';
-		loadingGif.src = '/images/loader.gif';
+		loadingGif.src = 'data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==';
 
 
 		// Attach the image to the dialog
@@ -218,7 +218,7 @@ Dialog.prototype = {
 		var m = null;
 		// IE hack for windowed elements in IE6. (CHLG: 3) *sigh*
 		if(navigator.appVersion.indexOf('MSIE 6.0') != -1) {
-			m = document.createElement('iframe'); 
+			m = document.createElement('iframe');
 		} else {
 			m = document.createElement('div');
 		}
@@ -227,7 +227,7 @@ Dialog.prototype = {
 		var sX = document.body.scrollLeft||self.pageXOffset||(d&&d.scrollLeft);
 		var sY = document.body.scrollTop||self.pageYOffset||(d&&d.scrollTop);
 		var pX = document.body.clientWidth||self.innerWidth||(d&&d.clientWidth);
-		var pY = document.body.clientHeight || self.innerHeight || 
+		var pY = document.body.clientHeight || self.innerHeight ||
 				(d&&d.clientHeight);
 		if(this.isIe) { pY += 32; pX -= 1;} // Hack for IE screen sizes
 		m.src = '/template/widgets/dialog/blank.html'; // Hack for IE (CHLG: 3)
@@ -284,7 +284,7 @@ Dialog.prototype = {
 	 * message - A simple alert dialog.
 	 * confirm - A boolean yes/no dialog.
 	 * input   - A complicated input field dialog.
-	 * 
+	 *
 	 * The _options may also specify the "title" to use on the dialog. That is,
 	 * the text to display as the name of the dialog "window". Dialogs are
 	 * displayed in the center of the screen with a "mask" the blocks all other
