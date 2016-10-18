@@ -24,3 +24,5 @@
 	$APP_URL_PATH = '/designmaps/us';
 
 	$APP_MAPQUEST_KEY = 'Fmjtd%7Cluub2qa7n0%2Can%3Do5-9u7a9z';
+
+	$CONFIG = array_merge(array('node' => ''), $_SERVER, $_ENV);
