@@ -5,7 +5,7 @@ h2 { font-size: 1.2em; clear:both; margin:8px 0;}
 #controls { font-size:1.2em; clear:left; }
 #controls a { display:block; float:right; padding: 2px 8px 2px 0; }
 sup,sub { font-size:.6em; }
-span.bar{margin0;padding:0;text-decoration:overline;}
+span.bar{margin:0;padding:0;text-decoration:overline;}
 
 p {
 	width: 550px;
@@ -24,6 +24,9 @@ p {
 	.mapwrapper img {
 		width:490px;
 		height:350px;
+	}
+	thead {
+		display: table-row-group;
 	}
 }
 
