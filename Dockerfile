@@ -17,7 +17,7 @@ RUN apt-get install -y libcairo2-dev && \
     echo 'extension=cairo.so' > /usr/local/etc/php/conf.d/cairo.ini
 
 # copy application (ignores set in .dockerignore)
-COPY . /hazdev-project
+COPY html/. /var/www/html/
 
-WORKDIR /hazdev-project
+WORKDIR /var/www/html/
 EXPOSE 8110
