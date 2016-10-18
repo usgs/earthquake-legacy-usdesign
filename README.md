@@ -20,5 +20,5 @@ Legacy tool used for computing seismic design values
 
 - Connect to running container in browser
   ```
-  http://localhost:8000/ws/hydra/
+  http://localhost:8110/designmaps/us/application.php
   ```
