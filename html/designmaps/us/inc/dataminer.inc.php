@@ -16,8 +16,8 @@
 	if ($node != '') {
 		$node = '/' . $node;
 	}
-	$hostname = $protocol . $_SERVER['SERVER_NAME'] . ':' .
-			$_SERVER['SERVER_PORT'] . $node;
+	$hostname = $protocol . $CONFIG['SERVER_NAME'] . ':' .
+			$CONFIG['SERVER_PORT'] . $node;
 
 	$OUT_DIR = "${APP_WEB_DIR}/output";
 	$result_id = uniqid('single.', true);
