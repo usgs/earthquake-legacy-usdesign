@@ -6,7 +6,18 @@
 	$result = ob_get_contents();
 	ob_end_clean();
 
-	$hostname = server_uri();
+	if ($_SERVER['HTTPS'] == '') {
+		$protocol = 'http://';
+	} else {
+		$protocol = 'https://';
+	}
+
+	$node = $CONFIG['node'];
+	if ($node != '') {
+		$node = '/' . $node;
+	}
+	$hostname = $protocol . $_SERVER['SERVER_NAME'] . ':' .
+			$_SERVER['SERVER_PORT'] . $node;
 
 	$OUT_DIR = "${APP_WEB_DIR}/output";
 	$result_id = uniqid('single.', true);
