@@ -76,7 +76,14 @@
 </div>
 <script type="text/javascript">/* <![CDATA[ */
 	try {
-		document.domain = "usgs.gov";
+		if (document.domain.indexOf('usgs.gov') !== -1) {
+			document.domain = "usgs.gov";
+		}
+	} catch (e) { /* Ignore */ }
+
+	try {
 		window.opener.popup_succeeded();
-	} catch(e) { /*Ignore*/ }
+	} catch(e) {
+		try {console.log(e.stack);} catch (e1) {/*Ignore*/}
+	}
 /* ]]> */</script>
