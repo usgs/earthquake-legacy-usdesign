@@ -33,16 +33,16 @@
 	$edition += $variant;
 	error_log("Using command: " .  "$latitude $longitude $siteclass $riskcategory $edition $pe50");
 
-	$result = proc_open(
-		"/usr/bin/java -jar ${APP_LIB_DIR}/DesignTool2009.jar " .
+	$result = proc_open("/usr/bin/java " .
+		"-Djava.security.egd=file:///dev/urandom " .
+		"-jar ${APP_LIB_DIR}/DesignTool2009.jar " .
 			"$latitude $longitude $siteclass $riskcategory $edition $pe50",
 		array(
 			1 => array('pipe', 'w'),
 			2 => array('pipe', 'w')
 		),
 		$pipes,
-		NULL,
-		array()
+		NULL
 	);
 
 	$errors = '';

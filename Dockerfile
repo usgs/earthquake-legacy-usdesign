@@ -2,7 +2,7 @@
 
 FROM php:5.6-apache
 MAINTAINER "Edward Hunter" <ehunter@usgs.gov>
-LABEL dockerfile_version="v0.1.1"
+LABEL dockerfile_version="v0.1.0"
 
 # install JRE (headless)
 RUN apt-key update -y && \
