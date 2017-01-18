@@ -12,10 +12,8 @@
 		$protocol = 'https://';
 	}
 
-	$node = $CONFIG['node'];
-	if ($node != '') {
-		$node = '/' . $node;
-	}
+  $node = isset($CONFIG['CROSS_NODE_PREFIX']) ?
+  		$CONFIG['CROSS_NODE_PREFIX'] : '';
 	$hostname = $protocol . $CONFIG['SERVER_NAME'] . ':' .
 			$CONFIG['SERVER_PORT'] . $node;
 

@@ -1,9 +1,12 @@
 build:
   image: usgs/earthquake-legacy-usdesign:latest
   volumes:
+    - ./html:/var/www/html
     - ./output:/var/www/html/designmaps/us/output
     - ./lib:/var/www/lib
     - ./data:/usr/local/tomcat/webapps/dataFiles
     - ./data:/var/www/data
   ports:
     - 8110:80
+  env_file:
+    - db.env
