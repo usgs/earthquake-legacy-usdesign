@@ -107,11 +107,11 @@ $DISCLAIMERS = array_merge(
 	array(
 				'<img src="/template/images/small_offsite_arrow.gif" ' .
 						'alt="Offsite Link" title="Offsite Link"> ' .
-				'<a href="http://www.doi.gov/disclaimer.cfm" ' .
+				'<a href="https://www.doi.gov/disclaimer.cfm" ' .
 						'title="Department of the Interior - Disclaimer of ' .
 								'Liability and Endorsement">DOI</a>' .
 				' and ' .
-				'<a href="http://www.usgs.gov/laws/info_policies.html" ' .
+				'<a href="https://www.usgs.gov/laws/info_policies.html" ' .
 						'title="USGS - Information Policies">USGS</a> ' .
 				'link policies apply.'
 	),

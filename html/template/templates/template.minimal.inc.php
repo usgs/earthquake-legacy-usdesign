@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<a href="http://www.usgs.gov/"><img src="/template/images/usgs.gif" alt="USGS - science for a changing world" title="U.S. Geological Survey Home Page" /></a>
+<a href="https://www.usgs.gov/"><img src="/template/images/usgs.gif" alt="USGS - science for a changing world" title="U.S. Geological Survey Home Page" /></a>
 <h1><?php print $TITLE; ?></h1>
 
 <?php include $SCRIPT_FILENAME; ?>

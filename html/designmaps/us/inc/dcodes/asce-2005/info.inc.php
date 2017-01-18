@@ -70,7 +70,7 @@ $FIGURES = array(
 	)
 );
 
-$MAP_URL = "http://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/ASCE7-2005-Figure22-%02d.pdf";
+$MAP_URL = "https://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/ASCE7-2005-Figure22-%02d.pdf";
 $MAP_TEXT = "Figure 22-%d";
 
 $T_L_PROVIDED = false;

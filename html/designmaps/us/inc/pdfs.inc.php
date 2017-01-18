@@ -399,7 +399,7 @@ function outputCodeListing($code_name, $code_contents, $format = 'normal') {
 	
 	# This code is also run from ghscweb
 	if (strpos($_SERVER['HTTP_HOST'], 'earthquake') === FALSE) {
-		$prefix = 'http://earthquake.usgs.gov';
+		$prefix = 'https://earthquake.usgs.gov';
 	} else {
 		$prefix = '';
 	}

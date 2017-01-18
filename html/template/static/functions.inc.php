@@ -167,11 +167,11 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 	 */
 	function server_uri() {
 		$server = `hostname`;
-		$r = "http://earthquake.usgs.gov";
+		$r = "https://earthquake.usgs.gov";
 
 		// Use specific overrides here ...
 		if (strpos($server, 'token') !== false) {
-			$r = "http://earthquake.usgs.gov";
+			$r = "https://earthquake.usgs.gov";
 		}
 
 		return($r);
@@ -494,12 +494,12 @@ if (! defined('__FUNCTIONS_INC_PHP__')) {
 		}
 
 		//open offsite links in new window
-		if(strstr($href, "http://")) {
+		if(strstr($href, "https://")) {
 			$target = " target=\"_blank\"";
 		}
 
 		//don't display index.php for onsite links
-		if (!strstr($href, "http://") && strstr($href, "index.php")) {
+		if (!strstr($href, "https://") && strstr($href, "index.php")) {
 			$href = str_replace("index.php", "", $href);
 		}
 

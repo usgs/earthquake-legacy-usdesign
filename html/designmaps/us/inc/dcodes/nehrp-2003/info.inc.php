@@ -61,7 +61,7 @@ $FIGURES = array(
 	),
 );
 
-$MAP_URL = "http://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/NEHRP-2003-Figure3.3-%02d.pdf";
+$MAP_URL = "https://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/NEHRP-2003-Figure3.3-%02d.pdf";
 $MAP_TEXT = "Figure 3.3-%d";
 
 $SHOWN_SPECTRA = array('design');

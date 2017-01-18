@@ -33,7 +33,7 @@
 	<ul class="nav-tabs">
 		<li class="active"><a href="application.php">Application</a></li>
 		<li><a href="batch.php">Batch Mode</a></li>
-		<li><a href="http://earthquake.usgs.gov/hazards/designmaps/usdesigndoc.php">Help</a></li>
+		<li><a href="https://earthquake.usgs.gov/hazards/designmaps/usdesigndoc.php">Help</a></li>
 	</ul>
 	<form method="post" action="noscript.inc.php" onsubmit="return false;" id="frm_app">
 		<ol>
@@ -149,22 +149,22 @@
 		For information on how to enable pop-ups, please consult one of the following browser-specific references:
 		<ul>
 			<li>
-				<a target="_blank" href="http://support.google.com/chrome/bin/answer.py?hl=en&answer=95472">
+				<a target="_blank" href="https://support.google.com/chrome/bin/answer.py?hl=en&answer=95472">
 					Chrome
 				</a>
 			</li>
 			<li>
-				<a target="_blank" href="http://support.mozilla.org/en-US/kb/pop-blocker-settings-exceptions-troubleshooting#w_pop-up-blocker-settings">
+				<a target="_blank" href="https://support.mozilla.org/en-US/kb/pop-blocker-settings-exceptions-troubleshooting#w_pop-up-blocker-settings">
 					Firefox
 				</a>
 			</li>
 			<li>
-				<a target="_blank" href="http://windows.microsoft.com/en-US/windows-vista/Internet-Explorer-Pop-up-Blocker-frequently-asked-questions">
+				<a target="_blank" href="https://windows.microsoft.com/en-US/windows-vista/Internet-Explorer-Pop-up-Blocker-frequently-asked-questions">
 					Internet Explorer
 				</a>
 			</li>
 			<li>
-				<a target="_blank" href="http://support.apple.com/kb/PH4980">
+				<a target="_blank" href="https://support.apple.com/kb/PH4980">
 					Safari
 				</a>
 			</li>
@@ -173,7 +173,7 @@
 	<div id="asce-erratum" title="Notification of ASCE 7-10 Erratum">
 	<p>
 		Soon, the American Society of Civil Engineers (ASCE) will release an
-		<a target="_blank" href="http://www.asce.org/sei/content.aspx?id=23622324315"
+		<a target="_blank" href="http://www.asce.org/structural-engineering/sei-supplements-and-errata/"
 		>erratum</a> for ASCE Standard 7-10 that affects this web application.
 	</p>
 	<p>
