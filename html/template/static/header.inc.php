@@ -1,8 +1,8 @@
 <?php //BEGIN USGS Header Template ?>
 <div id="usgsbanner"><div>
-	<a href="http://www.usgs.gov/"><img src="/template/images/usgs.jpg" alt="USGS - science for a changing world" title="U.S. Geological Survey Home Page" /></a>
+	<a href="https://www.usgs.gov/"><img src="/template/images/usgs.jpg" alt="USGS - science for a changing world" title="U.S. Geological Survey Home Page" /></a>
 	<ul>
-		<li><a href="http://www.usgs.gov/">USGS Home</a></li>
+		<li><a href="https://www.usgs.gov/">USGS Home</a></li>
 		<li><a href="https://answers.usgs.gov/">Contact USGS</a></li>
 	</ul>
 </div></div>
@@ -26,7 +26,7 @@
 	Yes, our search results page is at /search/, but that is only for javascript!
 */
 ?>
-		<form method="get" action="http://www.google.com/search" id="header-search-form" target="_blank" class="search-form">
+		<form method="get" action="https://www.google.com/search" id="header-search-form" target="_blank" class="search-form">
 			<span class="search-wrap">
 				<input type="text" name="q" size="10" maxlength="50" title="Search Text" class="search-text" />
 				<input type="image" src="/template/images/sbox_button.gif" alt="Search" class="search-button" />

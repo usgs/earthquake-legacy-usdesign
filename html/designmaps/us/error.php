@@ -25,7 +25,7 @@
 			<p class="four-zero-four">The requested page was not found. Use the 
 			links on the left to find what you were looking for. If you still 
 			can not find the page you were looking for, please <a 
-			href="http://earthquake.usgs.gov/contactus/?to=nluco">contact us for
+			href="https://earthquake.usgs.gov/contactus/?to=nluco">contact us for
 			assistance</a></p>
 		'
 	);

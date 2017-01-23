@@ -20,7 +20,7 @@
 	}
 
 	function twig_func_usd_marked_map ($lat, $lng, $size, $type = 'zoomed') {
-		$base_url = 'http://services.arcgisonline.com/arcgis/rest/services' .
+		$base_url = 'https://services.arcgisonline.com/arcgis/rest/services' .
 				'/NatGeo_World_Map/MapServer/export?';
 
 		if ($type === 'zoomed') {

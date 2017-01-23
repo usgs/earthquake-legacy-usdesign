@@ -41,7 +41,7 @@ $FIGURES = array(
 	)
 );
 
-$MAP_URL = "http://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/IBC-2012-Fig1613p3p1(%d).pdf";
+$MAP_URL = "https://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/IBC-2012-Fig1613p3p1(%d).pdf";
 $MAP_TEXT = "Figure 1613.3.1(%d)";
 
 $T_L_PROVIDED = false;

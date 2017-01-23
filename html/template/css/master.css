@@ -71,7 +71,7 @@ h6 {
 
 /* adds exit icon to offsite links */
 
-.offsite:hover:after, a:not([href*=".usgs.gov"]):not([href*="www.doi.gov"])[href^="http"]:hover:after {
+.offsite:hover:after, a:not([href*=".usgs.gov"]):not([href*="www.doi.gov"])[href^="https"]:hover:after {
 	position: absolute;
 	content: url("/template/images/small_offsite_arrow.gif");
 	margin-left: 2px;

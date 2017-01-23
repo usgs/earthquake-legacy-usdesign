@@ -59,7 +59,7 @@ $FIGURES = array(
 	)
 );
 
-$MAP_URL = 'http://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/AASHTO-2009-Figure-3.4.1-%d.pdf';
+$MAP_URL = 'https://earthquake.usgs.gov/hazards/designmaps/downloads/pdfs/AASHTO-2009-Figure-3.4.1-%d.pdf';
 $MAP_TEXT = 'Figure 3.4.1-%d';
 
 $T_L_PROVIDED = false;

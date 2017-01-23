@@ -9770,8 +9770,8 @@ usgs.leaflet.layer.marker.Marker = (function () {
  */
 usgs.leaflet.control.Geocode = (function () {
 	var DEFAULTS = {
-		forwardUrl: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find',
-		reverseUrl: 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode',
+		forwardUrl: 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find',
+		reverseUrl: 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode',
 		position: 'topleft',
 		setView: true,
 		maxZoom: 10,

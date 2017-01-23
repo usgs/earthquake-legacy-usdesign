@@ -6,11 +6,11 @@
 	$result = ob_get_contents();
 	ob_end_clean();
 
-	if ($_SERVER['HTTPS'] == '') {
-		$protocol = 'http://';
-	} else {
-		$protocol = 'https://';
-	}
+	$protocol = (
+		(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'Off') ||
+		(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+				$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+		? 'https://' : 'http://');
 
   $node = isset($CONFIG['CROSS_NODE_PREFIX']) ?
   		$CONFIG['CROSS_NODE_PREFIX'] : '';
