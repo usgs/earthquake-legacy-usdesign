@@ -2,7 +2,7 @@
 
 FROM usgs/hazdev-base-images:php
 MAINTAINER "Edward Hunter" <ehunter@usgs.gov>
-LABEL dockerfile_version="v0.1.2"
+LABEL dockerfile_version="v0.1.3"
 
 # install JRE (headless) and Cairo
 RUN yum install -y \
