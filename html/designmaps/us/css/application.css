@@ -3,6 +3,10 @@
 	border:2px dashed #ccc;
 	padding:5px;
 }
+.error {
+	background-color: #FCC;
+	border-color: #C99;
+}
 .nav-tabs {
 	display: block;
 	left: 0;

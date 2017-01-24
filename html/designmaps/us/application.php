@@ -29,6 +29,13 @@
 	Seismic Design Maps wiki</a>.
 </p>
 
+<p class="callout error">
+	There is currently a known issue running reports for the 2013 ASCE 41 design
+	code reference document with a &ldquo;Custom&rdquo; Earthquake Hazard Level.
+	There is no known timeline for this to be resolved, we apologize for the
+	inconvenience.
+</p>
+
 <div id="application">
 	<ul class="nav-tabs">
 		<li class="active"><a href="application.php">Application</a></li>
