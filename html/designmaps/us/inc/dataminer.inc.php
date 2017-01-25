@@ -12,10 +12,19 @@
 				$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
 		? 'https://' : 'http://');
 
+	$port = $CONFIG['ROUTING_PORT'];
+	if ($port != '') {
+		if (($protocol == 'http://' && $port == '80') ||
+				($protocol == 'https://' && $port == '443')) {
+			$port = '';
+		} else {
+			$port = ':' . $port;
+		}
+	}
+
   $node = isset($CONFIG['CROSS_NODE_PREFIX']) ?
   		$CONFIG['CROSS_NODE_PREFIX'] : '';
-	$hostname = $protocol . $CONFIG['SERVER_NAME'] . ':' .
-			$CONFIG['SERVER_PORT'] . $node;
+	$hostname = $protocol . $CONFIG['SERVER_NAME'] . $port . $node;
 
 	$OUT_DIR = "${APP_WEB_DIR}/output";
 	$result_id = uniqid('single.', true);
