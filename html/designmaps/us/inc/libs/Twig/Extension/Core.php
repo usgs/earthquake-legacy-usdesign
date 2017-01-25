@@ -629,7 +629,7 @@ function twig_escape_filter(Twig_Environment $env, $string, $type = 'html', $cha
             return $string;
 
         case 'html':
-            // see http://php.net/htmlspecialchars
+            // see https://php.net/htmlspecialchars
 
             // Using a static variable to avoid initializing the array
             // each time the function is called. Moving the declaration on the

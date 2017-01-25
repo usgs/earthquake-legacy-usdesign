@@ -381,7 +381,7 @@
 
   // Generate an integer Array containing an arithmetic progression. A port of
   // the native Python `range()` function. See
-  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+  // [the Python documentation](https://docs.python.org/library/functions.html#range).
   _.range = function(start, stop, step) {
     if (arguments.length <= 1) {
       stop = start || 0;
@@ -3887,7 +3887,7 @@ L.Map = L.Class.extend({
 	getPanes: function () {
 		return this._panes;
 	},
-	
+
 	getContainer: function () {
 		return this._container;
 	},
@@ -6587,7 +6587,7 @@ L.Rectangle = L.Polygon.extend({
 	setBounds: function (latLngBounds) {
 		this.setLatLngs(this._boundsToLatLngs(latLngBounds));
 	},
-	
+
 	_boundsToLatLngs: function (latLngBounds) {
 	    return [
 	        latLngBounds.getSouthWest(),
@@ -6647,7 +6647,7 @@ L.Circle = L.Path.extend({
 
 		return new L.LatLngBounds(sw, ne);
 	},
-	
+
 	getLatLng: function () {
 		return this._latlng;
 	},
@@ -6670,7 +6670,7 @@ L.Circle = L.Path.extend({
 			return "AL " + p.x + "," + p.y + " " + r + "," + r + " 0," + (65535 * 360);
 		}
 	},
-	
+
 	getRadius: function () {
 		return this._mRadius;
 	},
@@ -7689,7 +7689,7 @@ L.Map.BoxZoom = L.Handler.extend({
 			.addListener(document, 'mousemove', this._onMouseMove, this)
 			.addListener(document, 'mouseup', this._onMouseUp, this)
 			.preventDefault(e);
-			
+
 		this._map.fire("boxzoomstart");
 	},
 
@@ -7729,7 +7729,7 @@ L.Map.BoxZoom = L.Handler.extend({
 				map.layerPointToLatLng(layerPoint));
 
 		map.fitBounds(bounds);
-		
+
 		map.fire("boxzoomend", {
 			boxZoomBounds: bounds
 		});
@@ -7793,7 +7793,7 @@ L.Map.Focus = L.Handler.extend({
 	_makeFocusable: function () {
 		var map = this._map, container = this._container;
 
-		
+
 		// While we want the map to be "focusable", we don't want the map to
 		// appear focused (i.e. no outline etc...)
 		L.DomUtil.addClass(container, 'leaflet-container-nofocus');
@@ -8114,10 +8114,10 @@ L.Handler.PolyEdit = L.Handler.extend({
 		if (this._poly._latlngs.length < 3) {
 			return;
 		}
-		
+
 		var marker = e.target,
 		    i = marker._index;
-		
+
 		// Check existence of previous and next markers since they wouldn't exist for edge points on the polyline
 		if (marker._prev && marker._next) {
 			this._createMiddleMarker(marker._prev, marker._next);
@@ -9323,7 +9323,7 @@ usgs.location = usgs.location || {};
  * @import usgs/location/namespace.js
  */
 usgs.location.LocationModel = (function () {
-	
+
 	var DEFAULTS = {
 		latitude: 0.0,
 		longitude: 0.0,
@@ -9861,7 +9861,7 @@ usgs.leaflet.control.Geocode = (function () {
 			// Execute search (go) button
 			go.href = 'javascript:void(null);';
 			go.title = 'Search';
-			
+
 			L.DomEvent
 				.addListener(go, 'click', L.DomEvent.stop)
 				.addListener(go, 'click', this._onGeocodeClick, this);
@@ -9947,7 +9947,7 @@ usgs.leaflet.control.Geocode = (function () {
 			     index = parseInt(target.getAttribute('data-index')),
 				  sw = this._results[index].latlng,
 				  ne = this._selectedResult.latlng;
-			
+
 			if (sw.lat == ne.lat && sw.lng == ne.lng) {
 				// Same point. Do nothing.
 				return;
@@ -10077,11 +10077,11 @@ usgs.leaflet.control.Geocode = (function () {
 			}
 		},
 
-		/** 
+		/**
 		 * @param data {Object}
 		 *      The JSON response object from the request to the geocoding web
 		 *      service.
-		 * 
+		 *
 		 * @return {Object}
 		 *      A simplified result object with result information.
 		 *
@@ -10161,7 +10161,7 @@ usgs.leaflet.control.Geocode = (function () {
 
 			this._savedCenter = result.latlng;
 			this._savedZoom = zoom;
-			
+
 			if (this._marker._map) { this._map.removeLayer(this._marker); }
 			L.DomUtil.removeClass(this._list, 'showresults');
 
@@ -10388,7 +10388,7 @@ usgs.leaflet.control.Layers = (function () {
  * @import usgs/leaflet/control/Null.css
  */
 usgs.leaflet.control.Position = (function () {
-	
+
 	var DEFAULTS = {
 		position: 'bottomright',
 		precision: 3, // Number of decimals to display. Ignored if formatter
@@ -10539,7 +10539,7 @@ usgs.leaflet.layer.SimpleAbstractLayer = (function () {
 		getName: function () {
 			return this.options.name;
 		},
-		
+
 		getLink: function() {
 			return this.options.link;
 		}
@@ -10608,7 +10608,7 @@ usgs.math.Geo = {
 	 *      The great circle distance between the first and second point.
 	 */
 	haversinDistance: function (lat1, lng1, lat2, lng2, r) {
-		
+
 		var radius = (typeof r === 'number') ? r : 6378100,
 		   deg2rad = Math.PI / 180,
 		      phi1 = lat1 * deg2rad,
@@ -10890,7 +10890,7 @@ usgs.location.LocationView = (function () {
 			if (typeof accuracy === 'undefined') {
 				return 0;
 			}
-			
+
 			var max = Math.PI * 2 * 6378100.0, // earth circumference, meters
 			   zoom = 10 - parseInt(accuracy / max * 100);
 
