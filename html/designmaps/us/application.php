@@ -32,10 +32,9 @@
 </p>
 
 <p class="callout error">
-	There is currently a known issue running reports for the 2013 ASCE 41 design
-	code reference document with a &ldquo;Custom&rdquo; Earthquake Hazard Level.
-	There is no known timeline for this to be resolved, we apologize for the
-	inconvenience.
+	Within the 2013 ASCE 41 design code reference document option of this web
+	tool, the &ldquo;Custom&rdquo; earthquake hazard level option is no longer
+	available. An alternative outside of this tool is under development.
 </p>
 
 <div id="application">
