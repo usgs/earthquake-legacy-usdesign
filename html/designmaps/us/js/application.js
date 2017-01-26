@@ -60,7 +60,8 @@ var usdtool = {};
 				var variants = ['BSE-2N', 'BSE-1N', 'BSE-2E', 'BSE-1E', 'Custom'];
 
 				$(variants).each(function(i, val) {
-					$varsel.append('<option value="' + i + '">' + val + '</option>');
+					$varsel.append('<option value="' + i + '"' +
+							((val==='Custom')?' disabled':'') + '>' + val + '</option>');
 				});
 
 				$varsel.change(function() {
@@ -81,7 +82,8 @@ var usdtool = {};
 				var variants = ['BSE-1', 'BSE-2', 'Custom'];
 
 				$(variants).each(function(i, val) {
-					$varsel.append('<option value="' + i + '">' + val + '</option>');
+					$varsel.append('<option value="' + i + '"' +
+							((val==='Custom')?' disabled':'') + '>' + val + '</option>');
 				});
 
 				$varsel.closest('li').show();
