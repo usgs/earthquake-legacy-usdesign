@@ -24,9 +24,11 @@
 ?>
 
 <p class="callout">
-	For occasional announcements about this web tool, please visit our <a
-	href="https://geohazards.usgs.gov/trac/wiki/NSHMP/design/announcements">U.S.
-	Seismic Design Maps wiki</a>.
+	For seismic design parameter values from the 2015 NEHRP Recommended Seismic
+	Provisions, which are being adopted into the 2016 ASCE 7 Standard and the
+	2018 International Building Code, please see the
+	<a href="/designmaps/beta/us/">Beta version of the U.S. Seismic Design Maps
+	application</a>.
 </p>
 
 <p class="callout error">
