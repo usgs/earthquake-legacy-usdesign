@@ -24,16 +24,17 @@
 ?>
 
 <p class="callout">
-	For occasional announcements about this web tool, please visit our <a
-	href="https://geohazards.usgs.gov/trac/wiki/NSHMP/design/announcements">U.S.
-	Seismic Design Maps wiki</a>.
+	For seismic design parameter values from the 2015 NEHRP Recommended Seismic
+	Provisions, which are being adopted into the 2016 ASCE 7 Standard and the
+	2018 International Building Code, please see the
+	<a href="/designmaps/beta/us/">Beta version of the U.S. Seismic Design Maps
+	application</a>.
 </p>
 
 <p class="callout error">
-	There is currently a known issue running reports for the 2013 ASCE 41 design
-	code reference document with a &ldquo;Custom&rdquo; Earthquake Hazard Level.
-	There is no known timeline for this to be resolved, we apologize for the
-	inconvenience.
+	Within the 2013 ASCE 41 design code reference document option of this web
+	tool, the &ldquo;Custom&rdquo; earthquake hazard level option is no longer
+	available. An alternative outside of this tool is under development.
 </p>
 
 <div id="application">
