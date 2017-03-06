@@ -75,11 +75,11 @@
 	subject-matter knowledge.
 </div>
 <script type="text/javascript">/* <![CDATA[ */
-	try {
-		if (document.domain.indexOf('usgs.gov') !== -1) {
-			document.domain = "usgs.gov";
-		}
-	} catch (e) { /* Ignore */ }
+	// try {
+	// 	if (document.domain.indexOf('usgs.gov') !== -1) {
+	// 		document.domain = "usgs.gov";
+	// 	}
+	// } catch (e) { /* Ignore */ }
 
 	try {
 		window.opener.popup_succeeded();
