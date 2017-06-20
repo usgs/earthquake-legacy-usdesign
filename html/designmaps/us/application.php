@@ -34,7 +34,9 @@
 <p class="callout error">
 	Within the 2013 ASCE 41 design code reference document option of this web
 	tool, the &ldquo;Custom&rdquo; earthquake hazard level option is no longer
-	available. An alternative outside of this tool is under development.
+	available. However, outside of this tool, a USGS web service that includes
+	the &ldquo;Custom&rdquo; option is now available
+	<a href="/ws/designmaps/asce41-13.html">here</a>.
 </p>
 
 <div id="application">
