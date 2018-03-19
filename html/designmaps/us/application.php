@@ -24,19 +24,20 @@
 ?>
 
 <p class="callout">
-	For seismic design parameter values from the 2015 NEHRP Recommended Seismic
-	Provisions, which are being adopted into the 2016 ASCE 7 Standard and the
-	2018 International Building Code, please see the
-	<a href="/designmaps/beta/us/">Beta version of the U.S. Seismic Design Maps
-	application</a>.
-</p>
-
-<p class="callout error">
-	Within the 2013 ASCE 41 design code reference document option of this web
-	tool, the &ldquo;Custom&rdquo; earthquake hazard level option is no longer
-	available. However, outside of this tool, a USGS web service that includes
-	the &ldquo;Custom&rdquo; option is now available
-	<a href="/ws/designmaps/asce41-13.html">here</a>.
+  Due to insufficient resources and the recent development of similar web tools
+  by third parties, this spring the USGS will be streamlining the two U.S.
+  Seismic Design Maps web applications, including the one below. Whereas the
+  current applications each interact with users through a graphical user
+  interface (GUI), the new web services will receive the inputs (e.g. latitude
+  and longitude) in the form of a web address and return the outputs (e.g.
+  S<sub>DS</sub> and S<sub>D1</sub>) in text form, without supplementary
+  graphics. Though designed primarily to be read by the aforementioned
+  third-party web GUIs, the text outputs are also human-readable. To preview
+  the new web services, <a href="/ws/designmaps/">please click here</a>.
+  Step-by-step instructions for using one of these web services,
+  namely that for the recently published 2016 ASCE 7 Standard, <a
+  href="/hazards/designmaps/step-by-step-instructions-for-webservice_v3.pdf">
+  are posted here</a>.
 </p>
 
 <div id="application">
