@@ -1,11 +1,12 @@
-## Docker file to build app as container
+ARG FROM_IMAGE=usgs/httpd-php:latest
 
-FROM usgs/hazdev-base-images:php
-MAINTAINER "Edward Hunter" <ehunter@usgs.gov>
-LABEL dockerfile_version="v0.1.4"
+FROM ${FROM_IMAGE}
+LABEL maintainer="Eric Martinez<emartinez@usgs.gov>" \
+      dockerfile_version="v0.1.6"
 
 # install JRE (headless) and Cairo
 RUN yum install -y \
+    php55w-devel \
 		cairo-devel \
 		java-1.7.0-openjdk-headless \
 		&& \
