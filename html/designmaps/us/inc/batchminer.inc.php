@@ -22,13 +22,15 @@
 
 	$edition_idx += $variant;
 
-	$cmd_stub = 'java -jar DesignTool2009.jar %s %d';
+	$cmd_stub = '/usr/bin/java ' .
+			'-Djava.security.egd=file:///dev/urandom ' .
+			"-jar ${APP_LIB_DIR}/DesignTool2009.jar %s %d";
 	$descriptors = array(
 		0 => array('pipe', 'r'), // STDIN
 		1 => array('pipe', 'w'), // STDOUT
 		2 => array('pipe', 'w')  // STDERR
 	);
-	
+
 	$lines = file($_FILES['batchfile']['tmp_name'], FILE_IGNORE_NEW_LINES);
 
 	$error = '';
@@ -78,9 +80,9 @@
 	title="Excel Format">Excel File Format</a>
 
 <script type="text/javascript"> /* <![CDATA[ */
-	
+
 try {
-	<?php if ($error) { 
+	<?php if ($error) {
 		echo 'self.top.showBatchError("';
 		echo addcslashes($error, "\"\n");
 		echo '");';
